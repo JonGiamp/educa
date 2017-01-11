@@ -31,12 +31,16 @@ class PagesController extends Controller
       return view('pages/settings');
     }
 
+    public function error() {
+      return view('pages/error');
+    }
+
     public function level($level) {
       $level_available = array("cp","ce1","ce2","cm1","cm2");
       if(in_array(strtolower($level), $level_available))
         return view('pages/level', ['level'=>strtoupper($level)] );
       else
-        return redirect()->route('accueil');
+        return redirect()->route('error');
     }
 
     public function games($matieres) {
@@ -44,7 +48,7 @@ class PagesController extends Controller
       if(in_array(strtolower($matieres), $matieres_available))
         return view('pages/games', ['matieres'=>strtoupper($matieres)] );
       else
-        return redirect()->route('accueil');
+        return redirect()->route('error');
     }
 
     public function jeu($level, $game) {

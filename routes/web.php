@@ -21,3 +21,9 @@ Route::get('/mentions', 'PagesController@mentions')->name('mentions');
 Route::get('/options', 'PagesController@settings')->name('options');
 Route::get('/niveaux/{level}/{game}', 'PagesController@jeu')->name('jeu');
 Route::get('/error', 'PagesController@error')->name('error');
+Route::get('/logout', function () {
+  Auth::logout();
+  return Redirect::to('/');
+})->name('logout');
+
+Auth::routes();

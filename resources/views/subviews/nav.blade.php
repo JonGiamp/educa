@@ -32,9 +32,17 @@
                 <li><a href="{{ route('scores') }}">Mes scores</a></li>
                 <li><a href="{{ route('contact') }}">Contact</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ route('connexion') }}">Connexion / Inscription</a></li>
-            </ul>
+
+            @if (Auth::check())
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="{{ route('logout') }}">Déconnexion</a></li>
+              </ul>
+            @else
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="{{ route('connexion') }}">Connexion / Inscription</a></li>
+              </ul>
+            @endif
+
         </div><!--/.nav-collapse -->
     </div>
 </nav>

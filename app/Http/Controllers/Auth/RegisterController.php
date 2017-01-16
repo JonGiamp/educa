@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Users;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -27,7 +27,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
+    protected $table = 'users';
 
     /**
      * Create a new controller instance.
@@ -48,9 +49,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'name' => 'required|max:50',
             'password' => 'required|min:6|confirmed',
+            'email' => 'required|email|max:255|unique:users',
+            /*'date_register' => 'required|date',
+            'last_connexion' => 'required|date',*/
         ]);
     }
 
@@ -62,10 +65,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        return Users::create([
             'name' => $data['name'],
-            'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'email' => $data['email'],
+            'experience' => 0,
+            'level' => 1,
+            'years' => null,
+            'url_avatar' => "www.fake.fr/easy.jpg",
+            'date_register' => date('Y-m-d H:i:s'),
+            'last_connexion' => date('Y-m-d H:i:s')
         ]);
     }
+
 }

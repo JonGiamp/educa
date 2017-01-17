@@ -20,6 +20,14 @@ class PagesController extends Controller
       return view('pages/login');
     }
 
+    public function connexion() {
+      return view('auth/login');
+    }
+
+    public function inscription() {
+      return view('auth/register');
+    }
+
     public function rank() {
       return view('pages/scores');
     }

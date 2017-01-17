@@ -39,7 +39,8 @@
               </ul>
             @else
               <ul class="nav navbar-nav navbar-right">
-                  <li><a href="{{ route('connexion') }}">Connexion / Inscription</a></li>
+                  <li><a href="{{ route('connexion') }}">Connexion</a></li>
+                  <li><a href="{{ route('inscription') }}">Inscription</a></li>
               </ul>
             @endif
 

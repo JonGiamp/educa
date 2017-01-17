@@ -3,6 +3,21 @@
 @section('title', 'Educa - Accueil')
 
 @section('content')
+  <?php
+    $userYear = '';
+    // Better wirte this ?
+    function checkYears($year, $userYear)
+    {
+      if($year == $userYear) {
+        echo 'style="border: 2px solid #FF9136;"';
+      }
+    }
+  ?>
+  @if (Auth::check())
+    <?php
+      $userYear = strtolower(Auth::user()->years);
+    ?>
+  @endif
   <section>
       <div id="owl-demo" class="owl-carousel owl-theme">
           <div class="item">
@@ -107,35 +122,35 @@
           <h1 class="text-center">En quelle classe es-tu ?</h1>
           <div class="cp">
               <a href="{{ route('niveaux', ['level' => 'cp']) }}">
-                  <div class="caption img-cp">
+                  <div class="caption img-cp" <?php checkYears('cp', $userYear) ?>>
                       <h3>CP</h3>
                   </div>
               </a>
           </div>
           <div class="ce1">
               <a href="{{ route('niveaux', ['level' => 'ce1']) }}">
-                  <div class="caption img-ce1">
+                  <div class="caption img-ce1" <?php checkYears('ce1', $userYear) ?>>
                       <h3>CE1</h3>
                   </div>
               </a>
           </div>
           <div class="ce2">
               <a href="{{ route('niveaux', ['level' => 'ce2']) }}">
-                  <div class="caption img-ce2">
+                  <div class="caption img-ce2" <?php checkYears('ce2', $userYear) ?>>
                       <h3>CE2</h3>
                   </div>
               </a>
           </div>
           <div class="cm1">
               <a href="{{ route('niveaux', ['level' => 'cm1']) }}">
-                  <div class="caption img-cm1">
+                  <div class="caption img-cm1" <?php checkYears('cm1', $userYear) ?>>
                       <h3>CM1</h3>
                   </div>
               </a>
           </div>
           <div class="cm2">
               <a href="{{ route('niveaux', ['level' => 'cm2']) }}">
-                  <div class="caption img-cm2">
+                  <div class="caption img-cm2" <?php checkYears('cm2', $userYear) ?>>
                       <h3>CM2</h3>
                   </div>
               </a>

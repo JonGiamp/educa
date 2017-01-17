@@ -52,8 +52,6 @@ class RegisterController extends Controller
             'name' => 'required|max:50',
             'password' => 'required|min:6|confirmed',
             'email' => 'required|email|max:255|unique:users',
-            /*'date_register' => 'required|date',
-            'last_connexion' => 'required|date',*/
         ]);
     }
 
@@ -72,7 +70,7 @@ class RegisterController extends Controller
             'experience' => 0,
             'level' => 1,
             'years' => null,
-            'url_avatar' => "www.fake.fr/easy.jpg",
+            'avatar' => "lions",
             'date_register' => date('Y-m-d H:i:s'),
             'last_connexion' => date('Y-m-d H:i:s')
         ]);

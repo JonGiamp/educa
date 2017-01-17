@@ -4,11 +4,14 @@
           <h4>Plan du site</h4>
           <ul>
               <li><a href="{{ route('accueil') }}">Accueil</a></li>
-              <li><a href="XXXXXXXXXXXXXXXXX">Les niveaux</a></li>
-              <li><a href="XXXXXXXXXXXXXXXXX">Les jeux</a></li>
+              <!-- NEED TO FIX URL LOGIC -->
+              <!--<li><a href="XXXXXXXXXXXXXXXXX">Les niveaux</a></li>
+              <li><a href="XXXXXXXXXXXXXXXXX">Les jeux</a></li>-->
               <li><a href="{{ route('scores') }}">Mes scores</a></li>
               <li><a href="{{ route('scores') }}">Mes récompenses</a></li>
-              <li><a href="XXXXXXXXXXXXXXXXX">Mon profil</a></li>
+              @if (Auth::check())
+                <li><a href="{{ route('options') }}">Mon profil</a></li>
+              @endif
               <li><a href="{{ route('contact') }}">Contact</a></li>
               <li><a href="{{ route('mentions') }}">Mentions légales</a></li>
           </ul>
@@ -30,7 +33,7 @@
           </div>
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <p class="copy">IUT Haguenau &copy 2017</p>
+          <p class="copy">IUT Haguenau &copy {{date('Y')}}</p>
       </div>
   </div>
 </footer>

@@ -24,7 +24,6 @@
 
           <h3>Identification</h3>
           <p>Le site https://tp.iha.unistra.fr/projets/dweb01/educa/public/ que vous consultez actuellement est la propriété de : IUT de Haguenau, 30 Rue du Maire André Traband, 67500 Haguenau, France.</p>
-          <p>Le directeur de la publication est Thomas KIRSCH.</p>
 
           <h3>Propriété intellectuelle</h3>
           <p>L'accès au site https://tp.iha.unistra.fr/projets/dweb01/educa/public/ vous en confère un droit d'usage privé et non exclusif.</p>

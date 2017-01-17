@@ -32,6 +32,16 @@ body {
   background: #ffffff;
   overflow-x: hidden; }
 
+.form-control {
+  border: 1px solid #2CA8C2; }
+
+.btn-action {
+  background: #FF9136;
+  color: #ffffff !important; }
+
+.btn-action:hover {
+  background: #ff7503 !important; }
+
 /* CSS DU HEADER */
 header {
   /* #custom-search-input{
@@ -70,13 +80,15 @@ header {
     font-size: 23px;
     color: $c_sub;
 } */ }
-  header img {
+  header img.logo {
     width: 25%;
     margin: 20px 0; }
     @media screen and (max-width: 767px) {
-      header img {
+      header img.logo {
         width: 40%;
         margin: 20px auto; } }
+  header img.avatar {
+    width: 50%; }
   header .panel-player {
     width: 50%;
     -webkit-transform: translateY(50%);
@@ -142,7 +154,7 @@ header {
   margin-bottom: 0; }
 
 .settings button[type='submit']:hover {
-  background: #FF9136;
+  background: #ff7503;
   color: #ffffff;
   transition: 0.3s ease; }
 
@@ -179,7 +191,12 @@ nav .navbar-default {
 
 .navbar-nav > li > a {
   padding: 0;
-  margin: 0 15px; }
+  margin: 0 15px;
+  font-weight: normal; }
+
+.navbar-nav > li > a:hover {
+  font-weight: 700;
+  transition: 0.3s ease; }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > li > a:hover {
   color: #FFF;
@@ -314,7 +331,8 @@ main {
           #level .jeu-cp .bloc p {
             font-size: 14px; } }
       #level .jeu-cp .bloc a {
-        color: #FF9136;
+        color: #ffffff;
+        background: #FF9136;
         float: right;
         text-transform: uppercase;
         font-weight: 700;
@@ -327,7 +345,7 @@ main {
             padding: 10px 30px; } }
       #level .jeu-cp .bloc a:hover {
         color: #ffffff;
-        background-color: #FF9136;
+        background: #ff7503;
         border: 1px solid #FF9136; }
 
 #single {
@@ -375,7 +393,7 @@ main {
       border: 1px solid #FF9136;
       transition: 0.3s ease;
       margin-top: 20px;
-      margin-left: 69%; }
+      margin-bottom: 20px; }
       @media screen and (max-width: 1024px) {
         #single .jeux a.btn {
           width: 100%;
@@ -574,7 +592,8 @@ main {
       text-decoration: none; }
     #niveaux div div.caption {
       width: 100%;
-      height: 200px; }
+      height: 200px;
+      padding: 0; }
       #niveaux div div.caption h3 {
         font-size: 42px;
         margin: 0;
@@ -585,19 +604,24 @@ main {
       #niveaux div div.caption h3:hover {
         font-weight: 700; }
     #niveaux div .img-cp {
-      background-image: url(../images/dog.jpg);
+      background-image: url(../images/Landscape_Dog.png);
       background-size: cover; }
+    #niveaux div .img-cp:hover, #niveaux div .img-ce1:hover, #niveaux div .img-ce2:hover, #niveaux div .img-cm1:hover, #niveaux div .img-cm2:hover {
+      -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      transform: scale(1.1);
+      transition: 0.6s ease; }
     #niveaux div .img-ce1 {
-      background-image: url(../images/cat.jpg);
+      background-image: url(../images/Landscape_Cat.png);
       background-size: cover; }
     #niveaux div .img-ce2 {
-      background-image: url(../images/rabbit.jpg);
+      background-image: url(../images/Landscape_Rabbits.png);
       background-size: cover; }
     #niveaux div .img-cm1 {
-      background-image: url(../images/monkey.jpg);
+      background-image: url(../images/Landscape_Monkey.png);
       background-size: cover; }
     #niveaux div .img-cm2 {
-      background-image: url(../images/lions.jpg);
+      background-image: url(../images/Landscape_Lions.png);
       background-size: cover; }
 
 /* PAGE DE CONTACT */
@@ -611,7 +635,7 @@ main {
   margin-left: 15px; }
 
 #contact button:hover {
-  background: #FF9136;
+  background: #ff7503;
   color: #ffffff;
   transition: 0.3s ease; }
 
@@ -676,7 +700,7 @@ main {
   #account button {
     margin-left: 15px; }
   #account button:hover {
-    background: #FF9136;
+    background: #ff7503;
     color: #ffffff;
     transition: 0.3s ease; }
   #account form {
@@ -823,7 +847,7 @@ footer {
 
 #owl-demo .item .caption p {
   color: #2CA8C2;
-  width: 50%;
+  width: 35%;
   vertical-align: middle;
   padding-left: 15px; }
   @media screen and (max-width: 767px) {
@@ -877,6 +901,7 @@ footer {
 
 .list-group-item {
   text-align: center;
+  color: black;
   border: 1px solid #2CA8C2; }
   .list-group-item span {
     position: absolute;

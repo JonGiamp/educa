@@ -1,7 +1,7 @@
 <header>
   <div class="container">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <a href="{{ route('accueil') }}"><img src="{{ URL::asset('images/logo.png') }}" alt="Logo Educa" class="img-responsive"></a>
+          <a href="{{ route('accueil') }}"><img src="{{ URL::asset('images/logo.png') }}" alt="Logo Educa" class="img-responsive logo"></a>
       </div>
       @if (Auth::check())
         <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs">
@@ -12,9 +12,10 @@
                 <div class="name">
                     <a href="{{ route('options') }}">{{ Auth::user()->name }}</a>
                 </div>
-                <div class="avatar">
-                    <i class="fa fa-facebook"></i>
+                <!-- NEED TO FIX AVATAR -->
+                <div class="avatar" style="background-image: {{ Auth::user()->url_avatar }}">
                 </div>
+                <!-- NEED TO FIX PROGRESS BAR -->
                 <div class="progress-bar">
                     <div></div>
                 </div>

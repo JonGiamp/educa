@@ -20,7 +20,7 @@
           <div class="col-sm-8 col-xs-12">
               <div class="row">
                   <img src="http://lorempicsum.com/simpsons/627/200/3" alt="image du jeu">
-                  <a href="#collapseExample" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">C'est quoi ce jeu ?</a>
+                  <a href="#collapseExample" class="btn btn-action" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">C'est quoi ce jeu ?</a>
                   <div class="collapse" id="collapseExample">
                       <div class="well">
                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id purus iaculis, fringilla magna ac, lacinia felis. Duis non lectus finibus, pellentesque nisl in, viverra ipsum. Duis et odio sed metus pharetra varius. Donec fringilla enim tincidunt massa egestas elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.</p>
@@ -31,20 +31,20 @@
           <div class="col-sm-4 col-xs-12">
               <div class="row">
                   <div class="bloc">
-                      <div class="list-group">
-                          <a href="#" class="list-group-item title">classement</a>
-                          <a href="#" class="list-group-item"><span>1</span> nom joueur 1</a>
-                          <a href="#" class="list-group-item"><span>2</span> nom joueur 2</a>
-                          <a href="#" class="list-group-item active"><span>3</span> nom de ton joueur</a>
-                          <a href="#" class="list-group-item"><span>4</span> nom joueur 4</a>
-                          <a href="#" class="list-group-item"><span>5</span> nom joueur 5</a>
-                          <a href="#" class="list-group-item"><span>6</span> nom joueur 6</a>
-                          <a href="#" class="list-group-item"><span>7</span> nom joueur 7</a>
-                          <a href="#" class="list-group-item"><span>8</span> nom joueur 8</a>
-                          <a href="#" class="list-group-item"><span>9</span> nom joueur 9</a>
-                          <a href="#" class="list-group-item"><span>10</span> nom joueur 10</a>
-                      </div>
-                      <a href="#" class="btn">Voir le classement complet</a>
+                      <ul class="list-group">
+                          <li class="list-group-item title">classement</a>
+                          <li class="list-group-item"><span>1</span> nom joueur 1</li>
+                          <li class="list-group-item"><span>2</span> nom joueur 2</li>
+                          <li class="list-group-item active"><span>3</span> nom de ton joueur</li>
+                          <li class="list-group-item"><span>4</span> nom joueur 4</li>
+                          <li class="list-group-item"><span>5</span> nom joueur 5</li>
+                          <li class="list-group-item"><span>6</span> nom joueur 6</li>
+                          <li class="list-group-item"><span>7</span> nom joueur 7</li>
+                          <li class="list-group-item"><span>8</span> nom joueur 8</li>
+                          <li class="list-group-item"><span>9</span> nom joueur 9</li>
+                          <li class="list-group-item"><span>10</span> nom joueur 10</li>
+                      </ul>
+                      <a href="{{ route('scores') }}" class="btn">Voir le classement complet</a>
                   </div>
               </div>
           </div>
@@ -121,7 +121,7 @@
 @endsection
 
 @section('script')
-  <script src="{{ URL::asset('js/easingjs') }}"></script>
+  <script src="{{ URL::asset('js/easing.js') }}"></script>
   <script>
       $(function() {
           $('.nav-pills li a').bind('click', function(event) {

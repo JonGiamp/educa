@@ -62,7 +62,7 @@
           <div class="espacement"></div>
       </div>
 
-      <div class="col-xs-12 jeu-cp">
+      <div class="col-xs-12 jeu-cp"> 
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <div class="row">
                   <img src="http://lorempicsum.com/simpsons/627/200/3" alt="Image du jeu">

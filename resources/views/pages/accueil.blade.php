@@ -6,7 +6,7 @@
   <section>
       <div id="owl-demo" class="owl-carousel owl-theme">
           <div class="item">
-              <img src="{{ URL::asset('images/slider1.png') }}">
+              <img src="{{ URL::asset('images/slider_francais.jpg') }}">
               <div class="caption">
                   <div class="container">
                       <div class="col-lg-12">
@@ -15,13 +15,12 @@
                               de jouer en apprenant de nouvelles choses.
                               Dépassez-vous fasse à vos amis ! </p>
                           <a href="{{ route('jeux', ['matieres' => 'francais']) }}" class="btn">Voir les jeux de Français</a>
-                          <a href="{{ route('jeu', ['level'=>'cm2', 'game'=>'game 9']) }}" class="btn">Commencer à jouer</a>
                       </div>
                   </div>
               </div>
           </div>
           <div class="item">
-              <img src="{{ URL::asset('images/slider1.png') }}">
+              <img src="{{ URL::asset('images/slider_sciences.jpg') }}">
               <div class="caption">
                   <div class="container">
                       <div class="col-lg-12">
@@ -30,13 +29,12 @@
                               de jouer en apprenant de nouvelles choses.
                               Dépassez-vous fasse à vos amis ! </p>
                           <a href="{{ route('jeux', ['matieres' => 'sciences']) }}" class="btn">Voir les jeux de Sciences</a>
-                          <a href="{{ route('jeu', ['level'=>'cp', 'game'=>'game 7']) }}" class="btn">Commencer à jouer</a>
                       </div>
                   </div>
               </div>
           </div>
           <div class="item">
-              <img src="{{ URL::asset('images/slider1.png') }}">
+              <img src="{{ URL::asset('images/slider_maths.jpg') }}">
               <div class="caption">
                   <div class="container">
                       <div class="col-lg-12">
@@ -45,7 +43,6 @@
                               de jouer en apprenant de nouvelles choses.
                               Dépassez-vous fasse à vos amis ! </p>
                           <a href="{{ route('jeux', ['matieres' => 'mathematiques']) }}" class="btn">Voir les jeux de Mathématiques</a>
-                          <a href="{{ route('jeu', ['level'=>'ce1', 'game'=>'game 4']) }}" class="btn">Commencer à jouer</a>
                       </div>
                   </div>
               </div>

@@ -40,7 +40,7 @@
 @endsection
 
 @section('script')
-  <script src="{{ URL::asset('js/easingjs') }}"></script>
+  <script src="{{ URL::asset('js/easing.js') }}"></script>
 
   <script>
       $(function() {

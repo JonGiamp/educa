@@ -5,7 +5,7 @@
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
             </button>
         </div>
         <div id="navbar" class="collapse navbar-collapse">

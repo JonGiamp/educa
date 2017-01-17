@@ -11,9 +11,9 @@
                   <div class="container">
                       <div class="col-lg-12">
                           <h3>Devenez un as de l'école</h3>
-                          <p>De nombreux jeux et quizzs proposées sur la plate-forme vous donneront tout le plaisir
-                              de jouer en apprenant de nouvelles choses.
-                              Dépassez-vous fasse à vos amis ! </p>
+                          <p>Les nombreux jeux proposés sur la plate-forme vous procuront tout le plaisir
+                              de jouer tout en vous faisant apprendre de nouvelles choses !
+                              Amusez-vous à surclasser vos amis ! </p>
                           <a href="{{ route('jeux', ['matieres' => 'francais']) }}" class="btn">Voir les jeux de Français</a>
                       </div>
                   </div>
@@ -25,9 +25,9 @@
                   <div class="container">
                       <div class="col-lg-12">
                           <h3>Devenez un as de l'école</h3>
-                          <p>De nombreux jeux et quizzs proposées sur la plate-forme vous donneront tout le plaisir
-                              de jouer en apprenant de nouvelles choses.
-                              Dépassez-vous fasse à vos amis ! </p>
+                          <p>Les nombreux jeux proposés sur la plate-forme vous procuront tout le plaisir
+                              de jouer tout en vous faisant apprendre de nouvelles choses !
+                              Amusez-vous à surclasser vos amis ! </p>
                           <a href="{{ route('jeux', ['matieres' => 'sciences']) }}" class="btn">Voir les jeux de Sciences</a>
                       </div>
                   </div>
@@ -39,9 +39,9 @@
                   <div class="container">
                       <div class="col-lg-12">
                           <h3>Devenez un as de l'école</h3>
-                          <p>De nombreux jeux et quizzs proposées sur la plate-forme vous donneront tout le plaisir
-                              de jouer en apprenant de nouvelles choses.
-                              Dépassez-vous fasse à vos amis ! </p>
+                          <p>Les nombreux jeux proposés sur la plate-forme vous procuront tout le plaisir
+                              de jouer tout en vous faisant apprendre de nouvelles choses !
+                              Amusez-vous à surclasser vos amis ! </p>
                           <a href="{{ route('jeux', ['matieres' => 'mathematiques']) }}" class="btn">Voir les jeux de Mathématiques</a>
                       </div>
                   </div>

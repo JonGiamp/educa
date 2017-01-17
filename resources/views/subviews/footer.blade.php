@@ -18,7 +18,8 @@
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
           <h4>A propos de nous</h4>
-          <p>Petite description du projet pour donner confiance à l’utilisateur et lui donner le contexte. Petite description du projet pour donner confiance à l’utilisateur et lui donner le contexte. Petite description du projet pour donner confiance à l’utilisateur et lui donner le contexte.
+          <p>
+            Apprenti développeur, nous sommes un groupe d'étudiant de l'IUT Haguenau qui se donne à fond pour faire vivre ce projet open-source. N'hésitez pas à nous suivre sur Github afin de contribuer au projet !
           </p>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">

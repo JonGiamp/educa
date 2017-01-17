@@ -13,7 +13,8 @@
                     <a href="{{ route('options') }}">{{ Auth::user()->name }}</a>
                 </div>
                 <!-- NEED TO FIX AVATAR -->
-                <div class="avatar" style="background-image: {{ Auth::user()->url_avatar }}">
+                <div class="avatar">
+                  <img src="{{ URL::asset('images/avatar_lions.svg') }}" alt='Mon avatar' class="avatar" />
                 </div>
                 <!-- NEED TO FIX PROGRESS BAR -->
                 <div class="progress-bar">

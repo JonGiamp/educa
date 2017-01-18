@@ -67,7 +67,7 @@
                               <h3 class="panel-title">Paris - France (pays)</h3>
                           </div>
                           <div class="panel-body">
-                              <img src="{{ URL::asset('images/cartes-france.jpg') }}" alt='Image de jeu'>
+                              <img src="{{ URL::asset('images/cards/cartes-france.jpg') }}" alt='Image de jeu'>
                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui sapien, viverra a pulvinar vel, lacinia in orci. Proin id mi tempor, facilisis lacus eget, porttitor massa.</p>
                           </div>
                       </div>
@@ -78,7 +78,7 @@
                               <h3 class="panel-title">New-York - Etats-Unis (pays)</h3>
                           </div>
                           <div class="panel-body">
-                              <img src="{{ URL::asset('images/cartes-usa.jpg') }}" alt='Image de jeu'>
+                              <img src="{{ URL::asset('images/cards/cartes-usa.jpg') }}" alt='Image de jeu'>
                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui sapien, viverra a pulvinar vel, lacinia in orci. Proin id mi tempor, facilisis lacus eget, porttitor massa.</p>
                           </div>
                       </div>
@@ -89,7 +89,7 @@
                           <h3 class="panel-title">Rome - Italie (pays)</h3>
                       </div>
                       <div class="panel-body">
-                          <img src="{{ URL::asset('images/cartes-italie.jpg') }}" alt='Image de jeu'>
+                          <img src="{{ URL::asset('images/cards/cartes-italie.jpg') }}" alt='Image de jeu'>
                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui sapien, viverra a pulvinar vel, lacinia in orci. Proin id mi tempor, facilisis lacus eget, porttitor massa.</p>
                       </div>
                   </div>
@@ -100,7 +100,7 @@
                           <h3 class="panel-title">Londres - Royaume-Uni (pays)</h3>
                       </div>
                       <div class="panel-body">
-                          <img src="{{ URL::asset('images/cartes-royaume-uni.jpg') }}" alt='Image de jeu'>
+                          <img src="{{ URL::asset('images/cards/cartes-royaume-uni.jpg') }}" alt='Image de jeu'>
                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui sapien, viverra a pulvinar vel, lacinia in orci. Proin id mi tempor, facilisis lacus eget, porttitor massa.</p>
                       </div>
                   </div>
@@ -111,7 +111,7 @@
                           <h3 class="panel-title">Moscou - Russie (pays)</h3>
                       </div>
                       <div class="panel-body">
-                          <img src="{{ URL::asset('images/cartes-russie.jpg') }}" alt='Image de jeu'>
+                          <img src="{{ URL::asset('images/cards/cartes-russie.jpg') }}" alt='Image de jeu'>
                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui sapien, viverra a pulvinar vel, lacinia in orci. Proin id mi tempor, facilisis lacus eget, porttitor massa.</p>
                       </div>
                   </div>

@@ -604,7 +604,7 @@ main {
       #niveaux div div.caption h3:hover {
         font-weight: 700; }
     #niveaux div .img-cp {
-      background-image: url(../images/Landscape_Dog.png);
+      background-image: url(../images/landscape/Landscape_Dog.png);
       background-size: cover; }
     #niveaux div .img-cp:hover, #niveaux div .img-ce1:hover, #niveaux div .img-ce2:hover, #niveaux div .img-cm1:hover, #niveaux div .img-cm2:hover {
       -webkit-transform: scale(1.1);
@@ -612,16 +612,16 @@ main {
       transform: scale(1.1);
       transition: 0.6s ease; }
     #niveaux div .img-ce1 {
-      background-image: url(../images/Landscape_Cat.png);
+      background-image: url(../images/landscape/Landscape_Cat.png);
       background-size: cover; }
     #niveaux div .img-ce2 {
-      background-image: url(../images/Landscape_Rabbits.png);
+      background-image: url(../images/landscape/Landscape_Rabbits.png);
       background-size: cover; }
     #niveaux div .img-cm1 {
-      background-image: url(../images/Landscape_Monkey.png);
+      background-image: url(../images/landscape/Landscape_Monkey.png);
       background-size: cover; }
     #niveaux div .img-cm2 {
-      background-image: url(../images/Landscape_Lions.png);
+      background-image: url(../images/landscape/Landscape_Lions.png);
       background-size: cover; }
 
 /* PAGE DE CONTACT */

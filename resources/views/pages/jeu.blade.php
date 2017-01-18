@@ -56,7 +56,7 @@
                           <img src="http://placehold.it/350x150" alt="smiley" class="img-responsive" />
                       </div>
                       <div class="col-sm-1 col-xs-2 smiley">
-                          <img src="{{ URL::asset('images/happy.png') }}" alt="" class="img-responsive" />
+                          <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="" class="img-responsive" />
                       </div>
                       <div class="col-sm-8 col-xs-10 texte">
                           <h4>Nom de l'enfant <span class="date">12 janvier 2017</span></h4>
@@ -68,7 +68,7 @@
                           <img src="http://placehold.it/350x150" alt="smiley" class="img-responsive" />
                       </div>
                       <div class="col-sm-1 col-xs-2 smiley">
-                          <img src="{{ URL::asset('images/happy.png') }}" alt="" class="img-responsive" />
+                          <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="" class="img-responsive" />
                       </div>
                       <div class="col-sm-8 col-xs-10 texte">
                           <h4>Nom de l'enfant <span class="date">12 janvier 2017</span></h4>
@@ -80,7 +80,7 @@
                           <img src="http://placehold.it/350x150" alt="smiley" class="img-responsive" />
                       </div>
                       <div class="col-sm-1 col-xs-2 smiley">
-                          <img src="{{ URL::asset('images/happy.png') }}" alt="" class="img-responsive" />
+                          <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="" class="img-responsive" />
                       </div>
                       <div class="col-sm-8 col-xs-10 texte">
                           <h4>Nom de l'enfant <span class="date">12 janvier 2017</span></h4>
@@ -103,11 +103,11 @@
                           <h4>Nom de l'enfant <span class="date">12 janvier 2017</span></h4>
                           <textarea class="form-control" rows="3" placeholder="Ecrire le commentaire..."></textarea>
                           <div class="avis col-sm-6 col-xs-12">
-                              <img src="{{ URL::asset('images/happy.png') }}" alt="smiley" class="img-responsive avis" />
-                              <img src="{{ URL::asset('images/happy.png') }}" alt="smiley" class="img-responsive avis" />
-                              <img src="{{ URL::asset('images/happy.png') }}" alt="smiley" class="img-responsive avis" />
-                              <img src="{{ URL::asset('images/happy.png') }}" alt="smiley" class="img-responsive avis" />
-                              <img src="{{ URL::asset('images/happy.png') }}" alt="smiley" class="img-responsive avis" />
+                              <img src="{{ URL::asset('images/emotes/love.png') }}" alt="smiley" class="img-responsive avis" />
+                              <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="smiley" class="img-responsive avis" />
+                              <img src="{{ URL::asset('images/emotes/smile.png') }}" alt="smiley" class="img-responsive avis" />
+                              <img src="{{ URL::asset('images/emotes/sad.png') }}" alt="smiley" class="img-responsive avis" />
+                              <img src="{{ URL::asset('images/emotes/cry.png') }}" alt="smiley" class="img-responsive avis" />
                           </div>
                           <div class="col-sm-6 col-xs-12">
                               <a href="#" class="btn">Envoyer le commentaire</a>

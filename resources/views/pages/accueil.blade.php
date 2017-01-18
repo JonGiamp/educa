@@ -21,7 +21,7 @@
   <section>
       <div id="owl-demo" class="owl-carousel owl-theme">
           <div class="item">
-              <img src="{{ URL::asset('images/slider_francais.jpg') }}">
+              <img src="{{ URL::asset('images/slider/slider_francais.jpg') }}">
               <div class="caption">
                   <div class="container">
                       <div class="col-lg-12">
@@ -35,7 +35,7 @@
               </div>
           </div>
           <div class="item">
-              <img src="{{ URL::asset('images/slider_sciences.jpg') }}">
+              <img src="{{ URL::asset('images/slider/slider_sciences.jpg') }}">
               <div class="caption">
                   <div class="container">
                       <div class="col-lg-12">
@@ -49,7 +49,7 @@
               </div>
           </div>
           <div class="item">
-              <img src="{{ URL::asset('images/slider_maths.jpg') }}">
+              <img src="{{ URL::asset('images/slider/slider_maths.jpg') }}">
               <div class="caption">
                   <div class="container">
                       <div class="col-lg-12">

@@ -32,7 +32,7 @@
                                   <img src="http://placehold.it/350x150" alt="" class="img-responsive" />
                               </div>
                               <div class="col-sm-1 col-xs-2 smiley">
-                                  <img src="{{ URL::asset('images/happy.png') }}" alt="image de profil" class="img-responsive" />
+                                  <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="image de profil" class="img-responsive" />
                               </div>
                               <div class="col-sm-8 col-xs-10 texte">
                                   <h4>Nom du jeu | Le pseudo de l'enfant <span class="date">Date du commentaire</span></h4>
@@ -44,7 +44,7 @@
                                   <img src="http://placehold.it/350x150" alt="" class="img-responsive" />
                               </div>
                               <div class="col-sm-1 col-xs-2 smiley">
-                                  <img src="{{ URL::asset('images/happy.png') }}" alt="image de profil" class="img-responsive" />
+                                  <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="image de profil" class="img-responsive" />
                               </div>
                               <div class="col-sm-8 col-xs-10 texte">
                                   <h4>Nom du jeu | Le pseudo de l'enfant <span class="date">Date du commentaire</span></h4>
@@ -56,7 +56,7 @@
                                   <img src="http://placehold.it/350x150" alt="" class="img-responsive" />
                               </div>
                               <div class="col-sm-1 col-xs-2 smiley">
-                                  <img src="{{ URL::asset('images/happy.png') }}" alt="image de profil" class="img-responsive" />
+                                  <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="image de profil" class="img-responsive" />
                               </div>
                               <div class="col-sm-8 col-xs-10 texte">
                                   <h4>Nom du jeu | Le pseudo de l'enfant <span class="date">Date du commentaire</span></h4>

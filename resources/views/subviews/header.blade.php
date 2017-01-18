@@ -18,7 +18,7 @@
                     <a href="{{ route('options') }}">{{ Auth::user()->name }}</a>
                 </div>
                 <div class="avatar">
-                  <img src="https://tp.iha.unistra.fr/projets/dweb01/educa/public/images/avatar_{{ Auth::user()->avatar }}.svg" alt='Mon avatar' class="avatar" />
+                  <img src="{{ URL::asset('images/avatar/avatar_'.Auth::user()->avatar.'.svg') }}" alt='Mon avatar' class="avatar" />
                 </div>
                 <!-- NEED TO FIX PROGRESS BAR -->
                 <div class="progress-bar">

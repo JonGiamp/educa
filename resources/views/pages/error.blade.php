@@ -15,7 +15,7 @@
 
   <main id="divers" class="container">
       <div class="col-xs-12">
-          <img src="{{ URL::asset('images/ico-dog.svg') }}" alt="page non trouvée" class="img-responsive" />
+          <img src="{{ URL::asset('images/icons/ico-dog.svg') }}" alt="page non trouvée" class="img-responsive" />
           <h1>Error 502 : Désolé mais cette page n'existe pas.</h1>
           <a href="{{ route('accueil') }}" class="btn">Retour à l'accueil</a>
       </div>

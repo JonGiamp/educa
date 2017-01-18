@@ -25,8 +25,24 @@ class PagesController extends Controller
     }
 
     public function rank() {
-      if(Auth::check())
-        return view('pages/scores');
+      if(Auth::check()) {
+        // ranking Request
+        $games_id = \App\Games::all()->sortBy("id_card")->pluck('id_game');
+        $games_ranking = array();
+        foreach ($games_id as $id) {
+          $rank = \App\Ranking::where('id_game', $id)->orderBy('user_score', 'desc')->limit(10)->get();
+          if(sizeof($rank) != 0)
+            $games_ranking[] = $rank;
+        }
+
+        // Cards request
+        $cards_id = \App\Users_x_cards::where('id_user', Auth::user()->id)->orderBy('id_card', 'desc')->pluck('id_card');
+        $user_cards = array();
+        foreach ($cards_id as $id)
+            $user_cards[] = \App\Cards::where('id_card', $id)->get();
+
+        return view('pages/scores', ['games_ranking'=>$games_ranking, 'user_cards'=>$user_cards]);
+      }
       else
         return redirect()->route('accueil');
     }
@@ -36,8 +52,10 @@ class PagesController extends Controller
     }
 
     public function settings() {
-      if(Auth::check())
-        return view('pages/settings');
+      if(Auth::check()) {
+        $user_comments = \App\Comments::where('id_user', Auth::user()->id)->orderBy('date', 'desc')->get();
+        return view('pages/settings', ['user_comments'=>$user_comments]);
+      }
       else
         return redirect()->route('accueil');
     }

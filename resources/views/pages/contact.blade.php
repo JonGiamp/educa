@@ -18,17 +18,21 @@
           <h2>Formulaire de contact</h2>
       </div>
       <form>
-          <div class="form-group col-sm-6 col-xs-12">
-              <label for="name">Votre nom</label>
-              <input type="text" class="form-control" id="name" placeholder="Votre nom...">
-          </div>
-          <div class="form-group col-sm-6 col-xs-12">
-              <label for="firstname">Votre prénom</label>
-              <input type="text" class="form-control" id="firstname" placeholder="Votre prénom...">
+          <div class="form-group col-xs-12">
+              <label for="name">Votre pseudo</label>
+                <input type="text" class="form-control" id="name" placeholder="Votre nom..."
+                  @if (Auth::check())
+                    value="{{ Auth::user()->name }}" readonly
+                  @endif
+                >
           </div>
           <div class="form-group col-xs-12">
               <label for="email">Votre adresse email</label>
-              <input type="email" class="form-control" id="email" placeholder="Votre adresse email...">
+              <input type="email" class="form-control" id="email" placeholder="Votre adresse email..."
+                @if (Auth::check())
+                  value="{{ Auth::user()->email }}" readonly
+                @endif
+              >
           </div>
           <div class="form-group col-xs-12">
               <label for="message">Votre message</label>

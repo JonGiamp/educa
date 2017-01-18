@@ -16,10 +16,6 @@ class PagesController extends Controller
       return view('pages/contact');
     }
 
-    public function login() {
-      return view('pages/login');
-    }
-
     public function connexion() {
       return view('auth/login');
     }
@@ -29,7 +25,10 @@ class PagesController extends Controller
     }
 
     public function rank() {
-      return view('pages/scores');
+      if(Auth::check())
+        return view('pages/scores');
+      else
+        return redirect()->route('accueil');
     }
 
     public function mentions() {
@@ -37,7 +36,10 @@ class PagesController extends Controller
     }
 
     public function settings() {
-      return view('pages/settings');
+      if(Auth::check())
+        return view('pages/settings');
+      else
+        return redirect()->route('accueil');
     }
 
     public function error() {

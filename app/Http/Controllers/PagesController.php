@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
-
     public function accueil() {
       return view('pages/accueil');
     }
@@ -74,8 +73,10 @@ class PagesController extends Controller
 
     public function games($matieres) {
       $matieres_available = array("francais","sciences","mathematiques");
-      if(in_array(strtolower($matieres), $matieres_available))
-        return view('pages/games', ['matieres'=>strtoupper($matieres)] );
+      if(in_array(strtolower($matieres), $matieres_available)) {
+        $games = \App\Games::where('theme', strtolower($matieres))->orderBy('id_game', 'desc')->get();
+        return view('pages/games', ['matieres'=>strtoupper($matieres), 'games'=>$games] );
+      }
       else
         return redirect()->route('error');
     }

@@ -6,7 +6,7 @@
   <?php
     function checkName($name)
     {
-      if($name == strtolower(Auth::user()->name)) {
+      if(strtolower($name) == strtolower(Auth::user()->name)) {
         echo 'active';
       }
     }
@@ -34,7 +34,7 @@
           <div class="col-xs-12 tab-content">
               <div role="tabpanel" class="tab-pane active row" id="home">
                 @foreach ($games_ranking as $rank)
-                  <ul class="list-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                  <ul class="list-group col-sm-4 col-xs-12">
                       <li class="list-group-item title">{{$rank[0]->game_name}}</li>
                       @foreach ($rank as $player)
                       <li class="list-group-item <?php checkName($player->user_name) ?>"><span>{{strtoupper($player->game_level)}}</span>

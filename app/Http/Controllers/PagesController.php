@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\Auth;
 class PagesController extends Controller
 {
     public function accueil() {
-      return view('pages/accueil');
+      $game_spotlight = \App\Games::where('id_game', '>', 0)->orderBy('id_game', 'desc')->first();
+      $games_top = \App\Games::where('id_game', '>=', 0)->orderBy('count_play', 'desc')->limit(3)->get();
+      return view('pages/accueil', ['game_spotlight'=>$game_spotlight, 'games_top'=>$games_top]);
     }
 
     public function contact() {

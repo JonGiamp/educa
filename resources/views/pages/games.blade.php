@@ -48,8 +48,13 @@
                     <h3>{{$game->game_name}}</h3>
                     <div class="space"></div>
                     <p>{{$game->game_description}}</p>
-                    <!-- NEED PASS GAME_ID TO CONTROLLER -->
-                    <a href="{{ route('jeu', ['level'=>$level, 'game'=>$game->game_name]) }}" class="btn">Jouer !</a>
+                    {{-- <a href="{{ route('jeu', ['level'=>$level, 'game'=>$game->game_name]) }}" class="btn">Jouer !</a> --}}
+                    <a href="{{ route('jeu_from_matieres', [
+                      'matieres'=>$game->theme,
+                      'level'=>$level,
+                      'id'=>$game->id_game,
+                      'game'=>$game->game_name
+                      ]) }}" class="btn">Jouer !</a>
                   </div>
                 </div>
               </div>

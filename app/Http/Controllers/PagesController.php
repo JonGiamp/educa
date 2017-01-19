@@ -67,8 +67,11 @@ class PagesController extends Controller
 
     public function level($level) {
       $level_available = array("cp","ce1","ce2","cm1","cm2");
-      if(in_array(strtolower($level), $level_available))
-        return view('pages/level', ['level'=>strtoupper($level)] );
+      if(in_array(strtolower($level), $level_available)) {
+        $level_available = strtoupper($level)."_available";
+        $games = \App\Games::where($level_available, 1)->orderBy('id_game', 'desc')->get();
+        return view('pages/level', ['level'=>strtoupper($level), 'games'=>$games] );
+      }
       else
         return redirect()->route('error');
     }
@@ -83,11 +86,34 @@ class PagesController extends Controller
         return redirect()->route('error');
     }
 
-    public function jeu($level, $game) {
+    private function jeu($level, $matieres, $id_game, $game_name) {
       $level_available = array("cp","ce1","ce2","cm1","cm2");
       if(!(in_array(strtolower($level), $level_available)))
         return redirect()->route('accueil');
-      return view('pages/jeu', ['level'=>strtoupper($level), 'game'=>$game] );
+
+      $game_rank = \App\Ranking::where('id_game', $id_game)->orderBy('user_score', 'desc')->limit(10)->get();;
+
+      $game_comments = \App\Comments::where('id_game', $id_game)->orderBy('date', 'asc')->get();
+
+      $game = \App\Games::where('id_game', $id_game)->get();
+      if(!($game[0][strtoupper($level).'_available'] == 1))
+        return redirect()->route('accueil');
+      if(!($game[0]->theme == strtolower($matieres)))
+        return redirect()->route('accueil');
+      return view('pages/jeu', [
+        'level'=>strtoupper($level),
+        'game'=>$game[0],
+        'game_rank'=>$game_rank,
+        'game_comments'=>$game_comments
+        ] );
+    }
+
+     public function jeu_matieres($matieres, $level, $id_game, $game_name) {
+      return $this->jeu($level, $matieres, $id_game, $game_name);
+    }
+
+    public function jeu_level($level, $matieres, $id_game, $game_name) {
+      return $this->jeu($level, $matieres, $id_game, $game_name);
     }
 
 }

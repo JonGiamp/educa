@@ -1,14 +1,26 @@
 @extends('layouts.master')
 
-@section('title', 'Educa - '.$game.' - '.$level.'' )
+@section('title', 'Educa - '.$game->game_name.' - '.$level.'' )
 
 @section('content')
+  <?php
+    $user_nickname = '';
+    function checkName($name, $user_nickname)
+    {
+      if(strtolower($name) == $user_nickname) {
+        echo 'active';
+      }
+    }
+  ?>
+  @if(Auth::check())
+    <?php $user_nickname = strtolower(Auth::user()->name) ?>
+  @endif
   <div class="container">
       <div class="col-lg-5">
           <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="{{ route('accueil') }}">Accueil</a></li>
               <li class="breadcrumb-item"><a href="{{ route('niveaux', ['level' => $level ]) }}">{{ $level }}</a></li>
-              <li class="breadcrumb-item active">{{ $game }}</li>
+              <li class="breadcrumb-item active">{{ $game->game_name }}</li>
           </ol>
       </div>
   </div>
@@ -16,14 +28,14 @@
 
   <main id="single" class="container">
       <div class="col-xs-12 jeux">
-          <h4>{{ $game }}</h4>
+          <h4>{{ $game->game_name }}</h4>
           <div class="col-sm-8 col-xs-12">
               <div class="row">
-                  <img src="http://lorempicsum.com/simpsons/627/200/3" alt="image du jeu">
+                  <img src="{{ URL::asset('images/games/'.$game->picture_url.'.png') }}" alt="image du jeu">
                   <a href="#collapseExample" class="btn btn-action" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">C'est quoi ce jeu ?</a>
                   <div class="collapse" id="collapseExample">
                       <div class="well">
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id purus iaculis, fringilla magna ac, lacinia felis. Duis non lectus finibus, pellentesque nisl in, viverra ipsum. Duis et odio sed metus pharetra varius. Donec fringilla enim tincidunt massa egestas elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.</p>
+                          <p>{{ $game->game_notice }}</p>
                       </div>
                   </div>
               </div>
@@ -33,74 +45,54 @@
                   <div class="bloc">
                       <ul class="list-group">
                           <li class="list-group-item title">classement</a>
-                          <li class="list-group-item"><span>1</span> nom joueur 1</li>
-                          <li class="list-group-item"><span>2</span> nom joueur 2</li>
-                          <li class="list-group-item active"><span>3</span> nom de ton joueur</li>
-                          <li class="list-group-item"><span>4</span> nom joueur 4</li>
-                          <li class="list-group-item"><span>5</span> nom joueur 5</li>
-                          <li class="list-group-item"><span>6</span> nom joueur 6</li>
-                          <li class="list-group-item"><span>7</span> nom joueur 7</li>
-                          <li class="list-group-item"><span>8</span> nom joueur 8</li>
-                          <li class="list-group-item"><span>9</span> nom joueur 9</li>
-                          <li class="list-group-item"><span>10</span> nom joueur 10</li>
+                          @if(count($game_rank) != 0)
+                            @foreach ($game_rank as $player)
+                            <li class="list-group-item <?php checkName($player->user_name,$user_nickname) ?>"><span>{{strtoupper($player->game_level)}}</span>
+                              {{$player->user_name}}<span style="left: auto; right: 10px;">{{$player->user_score}}</span></li>
+                            @endforeach
+                          @else
+                            <li class="list-group-item">Le classement est actuellement vide, profite en !</li>
+                          @endif
                       </ul>
-                      <a href="{{ route('scores') }}" class="btn">Voir le classement complet</a>
+                      @if(count($game_rank) != 0)
+                        <a href="{{ route('scores') }}" class="btn">Voir le classement complet</a>
+                      @endif
                   </div>
               </div>
           </div>
           <div class="commentaires col-xs-12">
               <h3>Les commentaires</h3>
               <div class="comments">
+                @foreach($game_comments as $comment)
                   <div class="comments-item row">
                       <div class="col-sm-3 col-xs-12 image">
-                          <img src="http://placehold.it/350x150" alt="smiley" class="img-responsive" />
+                          <img src="{{ URL::asset('images/games/'.$comment->game_picture.'.png') }}" alt="{{$comment->url_emote}}" class="img-responsive" />
                       </div>
                       <div class="col-sm-1 col-xs-2 smiley">
-                          <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="" class="img-responsive" />
+                          <img src="{{ URL::asset('images/emotes/'.$comment->url_emote.'.png') }}" alt="" class="img-responsive" />
                       </div>
                       <div class="col-sm-8 col-xs-10 texte">
-                          <h4>Nom de l'enfant <span class="date">12 janvier 2017</span></h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id urna id arcu pharetra sagittis id eget augue. Mauris consectetur pretium risus. Integer ullamcorper non velit eget posuere.</p>
+                          <h4>{{$comment->user_name}} <span class="date">{{$comment->date}}</span></h4>
+                          <p>{{$comment->comment}}</p>
                       </div>
                   </div>
-                  <div class="comments-item row">
-                      <div class="col-sm-3 col-xs-12 image">
-                          <img src="http://placehold.it/350x150" alt="smiley" class="img-responsive" />
-                      </div>
-                      <div class="col-sm-1 col-xs-2 smiley">
-                          <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="" class="img-responsive" />
-                      </div>
-                      <div class="col-sm-8 col-xs-10 texte">
-                          <h4>Nom de l'enfant <span class="date">12 janvier 2017</span></h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id urna id arcu pharetra sagittis id eget augue. Mauris consectetur pretium risus. Integer ullamcorper non velit eget posuere.</p>
-                      </div>
-                  </div>
-                  <div class="comments-item row">
-                      <div class="col-sm-3 col-xs-12 image">
-                          <img src="http://placehold.it/350x150" alt="smiley" class="img-responsive" />
-                      </div>
-                      <div class="col-sm-1 col-xs-2 smiley">
-                          <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="" class="img-responsive" />
-                      </div>
-                      <div class="col-sm-8 col-xs-10 texte">
-                          <h4>Nom de l'enfant <span class="date">12 janvier 2017</span></h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id urna id arcu pharetra sagittis id eget augue. Mauris consectetur pretium risus. Integer ullamcorper non velit eget posuere.</p>
-                      </div>
-                  </div>
+                @endforeach
               </div>
           </div>
+
+        @if(Auth::check())
           <div class="commentaires write col-xs-12">
               <h3>Ecrire un commentaire</h3>
               <div class="comments">
                   <div class="comments-item row">
                       <div class="col-sm-3 col-xs-12 image">
-                          <img src="http://placehold.it/350x150" alt="" class="img-responsive" />
+                          <img src="{{ URL::asset('images/games/'.$comment->game_picture.'.png') }}" alt="{{$comment->url_emote}}" class="img-responsive" />
                       </div>
                       <div class="col-sm-1 col-xs-2 smiley">
                           <img src="{{ URL::asset('images/happy.png') }}" alt="smiley" class="img-responsive" />
                       </div>
                       <div class="col-sm-8 col-xs-10 texte">
-                          <h4>Nom de l'enfant <span class="date">12 janvier 2017</span></h4>
+                          <h4>{{Auth::user()->name}} <span class="date"><?php echo date('Y-m-d') ?></span></h4>
                           <textarea class="form-control" rows="3" placeholder="Ecrire le commentaire..."></textarea>
                           <div class="avis col-sm-6 col-xs-12">
                               <img src="{{ URL::asset('images/emotes/love.png') }}" alt="smiley" class="img-responsive avis" />
@@ -116,6 +108,7 @@
                   </div>
               </div>
           </div>
+          @endif
       </div>
   </main>
 @endsection

@@ -12,72 +12,43 @@
       </div>
   </div>
 
-
+<?php $first = true; ?>
   <main id="level" class="container">
       <div class="col-xs-12">
           <h2>Jeux pour les {{ $level }}</h2>
       </div>
+      @foreach($games as $game)
 
-      <div class="col-xs-12 jeu-cp">
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-              <div class="row">
-                  <img src="http://lorempicsum.com/simpsons/627/200/3" alt="Image du jeu">
-              </div>
+        @if(!$first)
+          <div class="col-xs-12">
+              <div class="espacement"></div>
           </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-              <div class="row">
-                  <div class="bloc">
-                      <h3>Titre du jeu numéro 1</h3>
-                      <div class="space"></div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id urna id arcu pharetra sagittis id eget augue. Mauris consectetur pretium risus. Integer ullamcorper non velit eget posuere.</p>
-                      <a href="{{ route('jeu', ['level'=>$level, 'game'=>'game 1']) }}" class="btn">Jouer !</a>
-                  </div>
-              </div>
-          </div>
-      </div>
+        @endif
 
-      <div class="col-xs-12">
-          <div class="espacement"></div>
-      </div>
-
-      <div class="col-xs-12 jeu-cp">
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-              <div class="row">
-                  <img src="http://lorempicsum.com/simpsons/627/200/3" alt="Image du jeu">
-              </div>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-              <div class="row">
-                  <div class="bloc">
-                      <h3>Titre du jeu numéro 1</h3>
-                      <div class="space"></div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id urna id arcu pharetra sagittis id eget augue. Mauris consectetur pretium risus. Integer ullamcorper non velit eget posuere.</p>
-                      <a href="{{ route('jeu', ['level'=>$level, 'game'=>'game 2']) }}" class="btn">Jouer !</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      <div class="col-xs-12">
-          <div class="espacement"></div>
-      </div>
-
-      <div class="col-xs-12 jeu-cp"> 
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-              <div class="row">
-                  <img src="http://lorempicsum.com/simpsons/627/200/3" alt="Image du jeu">
-              </div>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-              <div class="row">
-                  <div class="bloc">
-                      <h3>Titre du jeu numéro 1</h3>
-                      <div class="space"></div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id urna id arcu pharetra sagittis id eget augue. Mauris consectetur pretium risus. Integer ullamcorper non velit eget posuere.</p>
-                      <a href="{{ route('jeu', ['level'=>$level, 'game'=>'game 3']) }}" class="btn">Jouer !</a>
-                  </div>
-              </div>
-          </div>
-      </div>
+        <div class="col-xs-12 jeu-cp">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="row">
+                    <img src="{{ URL::asset('images/games/'.$game->picture_url.'.png') }}" alt="Image du jeu">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="row">
+                    <div class="bloc">
+                        <h3>{{$game->game_name}}</h3>
+                        <div class="space"></div>
+                        <p>{{$game->game_description}}</p>
+                        {{-- <a href="{{ route('jeu', ['level'=>$level, 'game'=>$game->game_name, 'id'=>$game->id_game]) }}" class="btn">Jouer !</a> --}}
+                        <a href="{{ route('jeu_from_level', [
+                        'level'=>$level,
+                        'matieres'=>$game->theme,
+                        'id'=>$game->id_game,
+                        'game'=>$game->game_name
+                        ]) }}" class="btn">Jouer !</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php $first = false; ?>
+      @endforeach
   </main>
 @endsection

@@ -77,7 +77,15 @@
                     <div class="col-lg-12">
                       <h3>Découvrez notre dernier jeu</h3>
                       <div class="space"></div>
-                      <a href="{{ route('jeu', ['level'=>'ce1', 'game'=>'game 1']) }}" class="btn">Jouer</a>
+                      {{-- <a href="{{ route('jeu', ['level'=>'ce1', 'game'=>'game 1']) }}" class="btn">Jouer</a> --}}
+                      <!-- CHANGE LEVEL HERE -->
+
+                      <a href="{{ route('jeu_from_matieres', [
+                        'matieres'=>$game_spotlight->theme,
+                        'level'=>'CE1',
+                        'id'=>$game_spotlight->id_game,
+                        'game'=>$game_spotlight->game_name
+                        ]) }}" class="btn">Jouer !</a>
                     </div>
                   </div>
                 </div>
@@ -106,7 +114,13 @@
                         }
                         $has_level = !$has_level;
                         ?>
-                        <a href="{{ route('jeu', ['level'=>$level_available[$i], 'game'=>$game->game_name]) }}" class="btn">Jouer !</a>
+                        {{-- <a href="{{ route('jeu', ['level'=>$level_available[$i], 'game'=>$game->game_name]) }}" class="btn">Jouer !</a> --}}
+                        <a href="{{ route('jeu_from_matieres', [
+                          'matieres'=>$game->theme,
+                          'level'=>$level_available[$i],
+                          'id'=>$game->id_game,
+                          'game'=>$game->game_name
+                          ]) }}" class="btn">Jouer !</a>
                       </div>
                     </div>
                   </div>

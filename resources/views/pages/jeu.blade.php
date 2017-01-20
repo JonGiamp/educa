@@ -115,7 +115,6 @@
                         </div>
                         {!! Form::hidden('comeback_url', $folder.'/'.$matieres.'/'.strtolower($level).'/'.$game->id_game.'-'.$game->game_name); !!}
                         {!! Form::hidden('url_emote', 'happy'); !!}
-                        {!! Form::hidden('date', date('Y-m-d')); !!}
 
                       {!! Form::close() !!}
 

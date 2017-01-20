@@ -83,10 +83,6 @@
                             </label>
                         </div>
                     </div>
-                    <div class="form-group col-lg-12">
-                      <label for="password">Votre mot de passe Actuel</label>
-                      <input type="password" class="form-control" id="password" placeholder="Votre mot de passe actuel...">
-                  </div>
                   <div class="form-group col-lg-12">
                       <label for="password_1">Nouveau mot de passe</label>
                       <input type="password" class="form-control" id="password_1" placeholder="Votre mot de passe...">
@@ -96,7 +92,7 @@
                       <input type="password" class="form-control" id="password_2" placeholder="Votre mot de passe...">
                   </div>
                   <div class="form-group col-lg-12">
-                      <button type="submit" class="btn btn-default">Créer votre compte</button>
+                      <button type="submit" class="btn btn-default">Mettre à jour mon compte</button>
                   </div>
               </form>
           </div>

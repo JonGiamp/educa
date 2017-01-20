@@ -31,8 +31,7 @@ class CommentsRequest extends FormRequest
           'game_picture' => 'bail|required',
           'comment' => 'bail|required',
           'comeback_url' => 'bail|required',
-          'url_emote' => 'bail|required',
-          'date' => 'bail|required',
+          'url_emote' => 'bail|required'
         ];
     }
 }

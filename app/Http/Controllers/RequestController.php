@@ -19,9 +19,10 @@ class RequestController extends Controller
     $Comments->game_picture = $request->game_picture;
     $Comments->comment = $request->comment;
     $Comments->url_emote = $request->url_emote;
-    $Comments->date = $request->date;
+    $Comments->date = date('Y-m-d');
     $Comments->save();
-    return var_dump($request);
+
+    return redirect()->route('options');
   }
 
   public function post_contact(ContactRequest $request) {

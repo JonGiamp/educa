@@ -88,23 +88,37 @@
                       <div class="col-sm-3 col-xs-12 image">
                           <img src="{{ URL::asset('images/games/'.$comment->game_picture.'.png') }}" alt="{{$comment->url_emote}}" class="img-responsive" />
                       </div>
-                      <div class="col-sm-1 col-xs-2 smiley">
-                          <img src="{{ URL::asset('images/happy.png') }}" alt="smiley" class="img-responsive" />
-                      </div>
-                      <div class="col-sm-8 col-xs-10 texte">
-                          <h4>{{Auth::user()->name}} <span class="date"><?php echo date('Y-m-d') ?></span></h4>
-                          <textarea class="form-control" rows="3" placeholder="Ecrire le commentaire..."></textarea>
-                          <div class="avis col-sm-6 col-xs-12">
-                              <img src="{{ URL::asset('images/emotes/love.png') }}" alt="smiley" class="img-responsive avis" />
-                              <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="smiley" class="img-responsive avis" />
-                              <img src="{{ URL::asset('images/emotes/smile.png') }}" alt="smiley" class="img-responsive avis" />
-                              <img src="{{ URL::asset('images/emotes/sad.png') }}" alt="smiley" class="img-responsive avis" />
-                              <img src="{{ URL::asset('images/emotes/cry.png') }}" alt="smiley" class="img-responsive avis" />
-                          </div>
-                          <div class="col-sm-6 col-xs-12">
-                              <a href="#" class="btn">Envoyer le commentaire</a>
-                          </div>
-                      </div>
+
+                        {!! Form::open(['url' => route('post_comments') ]) !!}
+                        {!! Form::hidden('id_user', Auth::user()->id); !!}
+                        {!! Form::hidden('user_name', Auth::user()->name); !!}
+                        {!! Form::hidden('id_game', $game->id_game); !!}
+                        {!! Form::hidden('game_name', $game->game_name); !!}
+                        {!! Form::hidden('game_picture', $game->picture_url); !!}
+
+                        <div class="col-sm-1 col-xs-2 smiley">
+                            <img src="{{ URL::asset('images/happy.png') }}" alt="happy" class="img-responsive" />
+                        </div>
+                        <div class="col-sm-8 col-xs-10 texte">
+                            <h4>{{Auth::user()->name}} <span class="date"><?php echo date('Y-m-d') ?></span></h4>
+                            {!! Form::textarea('comment', '', ['class' => 'form-control', 'rows' => '3', 'placeholder' => 'Ecrire le commentaire...']) !!}
+                            <div class="avis col-sm-6 col-xs-12">
+                                <img src="{{ URL::asset('images/emotes/love.png') }}" alt="love" class="img-responsive avis" />
+                                <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="happy" class="img-responsive avis" />
+                                <img src="{{ URL::asset('images/emotes/smile.png') }}" alt="smile" class="img-responsive avis" />
+                                <img src="{{ URL::asset('images/emotes/sad.png') }}" alt="sad" class="img-responsive avis" />
+                                <img src="{{ URL::asset('images/emotes/cry.png') }}" alt="cry" class="img-responsive avis" />
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                {!! Form::submit('Envoyer le commentaire', ['class' => 'btn']) !!}
+                            </div>
+                        </div>
+                        {!! Form::hidden('comeback_url', $folder.'/'.$matieres.'/'.strtolower($level).'/'.$game->id_game.'-'.$game->game_name); !!}
+                        {!! Form::hidden('url_emote', 'happy'); !!}
+                        {!! Form::hidden('date', date('Y-m-d')); !!}
+
+                      {!! Form::close() !!}
+
                   </div>
               </div>
           </div>

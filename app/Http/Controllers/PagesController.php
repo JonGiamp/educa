@@ -17,6 +17,16 @@ class PagesController extends Controller
       return view('pages/contact');
     }
 
+    public function post_comments(Request $request)
+    {
+        return dd($request);
+    }
+
+    public function post_contact(Request $request)
+    {
+        return var_dump($request);
+    }
+
     public function connexion() {
       return view('auth/login');
     }
@@ -86,7 +96,7 @@ class PagesController extends Controller
         return redirect()->route('error');
     }
 
-    private function jeu($level, $matieres, $id_game, $game_name) {
+    private function jeu($level, $matieres, $id_game, $game_name, $folder) {
       $level_available = array("cp","ce1","ce2","cm1","cm2");
       if(!(in_array(strtolower($level), $level_available)))
         return redirect()->route('accueil');
@@ -104,16 +114,20 @@ class PagesController extends Controller
         'level'=>strtoupper($level),
         'game'=>$game[0],
         'game_rank'=>$game_rank,
-        'game_comments'=>$game_comments
+        'game_comments'=>$game_comments,
+        'folder'=>$folder,
+        'matieres'=>$matieres
         ] );
     }
 
      public function jeu_matieres($matieres, $level, $id_game, $game_name) {
-      return $this->jeu($level, $matieres, $id_game, $game_name);
+      $folder = 'jeux';
+      return $this->jeu($level, $matieres, $id_game, $game_name,$folder);
     }
 
     public function jeu_level($level, $matieres, $id_game, $game_name) {
-      return $this->jeu($level, $matieres, $id_game, $game_name);
+      $folder = 'niveaux';
+      return $this->jeu($level, $matieres, $id_game, $game_name, $folder);
     }
 
 }

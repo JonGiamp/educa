@@ -90,14 +90,12 @@
                       </div>
 
                         {!! Form::open(['url' => route('post_comments') ]) !!}
-                        {!! Form::hidden('id_user', Auth::user()->id); !!}
-                        {!! Form::hidden('user_name', Auth::user()->name); !!}
                         {!! Form::hidden('id_game', $game->id_game); !!}
                         {!! Form::hidden('game_name', $game->game_name); !!}
                         {!! Form::hidden('game_picture', $game->picture_url); !!}
 
                         <div class="col-sm-1 col-xs-2 smiley">
-                            <img src="{{ URL::asset('images/happy.png') }}" alt="happy" class="img-responsive" />
+                            <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="happy" class="img-responsive" />
                         </div>
                         <div class="col-sm-8 col-xs-10 texte">
                             <h4>{{Auth::user()->name}} <span class="date"><?php echo date('Y-m-d') ?></span></h4>

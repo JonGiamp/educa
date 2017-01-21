@@ -24,8 +24,6 @@ class CommentsRequest extends FormRequest
     public function rules()
     {
         return [
-          'id_user' => 'bail|required',
-          'user_name' => 'bail|required',
           'game_name' => 'bail|required',
           'game_picture' => 'bail|required',
           'comment' => 'bail|required',

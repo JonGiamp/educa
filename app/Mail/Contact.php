@@ -31,6 +31,6 @@ class Contact extends Mailable
      */
     public function build()
     {
-      return $this->from('contacteduca@gmail.com.com')->view('emails.contact');
+      return $this->from('contacteduca@gmail.com')->view('emails.contact');
     }
 }

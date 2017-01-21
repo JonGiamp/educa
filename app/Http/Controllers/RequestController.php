@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ContactRequest;
 use App\Http\Requests\CommentsRequest;
+use App\Http\Requests\SettingsRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Contact;
 use App\Comments;
+use App\Users;
 
 class RequestController extends Controller
 {
@@ -29,6 +32,13 @@ class RequestController extends Controller
     Mail::to('administrateur@chezmoi.com')
             ->send(new Contact($request->except('_token')));
     return view('pages/contact');
+  }
+
+  public function put_settings(SettingsRequest $request) {
+      $flight = Users::find(Auth::user()->id);
+      // $flight = user, this works.
+      // Now, need compare $flight data with put date request
+      // return dd($flight);
   }
 
 }

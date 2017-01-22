@@ -67,7 +67,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        {{-- <div class="form-group">
           <div class="col-xs-12">
             <div class="checkbox">
               <a class="btn btn-link" href="{{ url('/password/reset') }}">
@@ -75,7 +75,7 @@
               </a>
             </div>
           </div>
-        </div>
+        </div> --}}
 
         <div class="form-group">
           <div class="col-xs-12">

@@ -95,24 +95,29 @@
                         {!! Form::hidden('game_picture', $game->picture_url); !!}
 
                         <div class="col-sm-1 col-xs-2 smiley">
-                            <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="happy" class="img-responsive" />
+                            <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="happy" class="img-responsive" id="emoteContainer"/>
                         </div>
                         <div class="col-sm-8 col-xs-10 texte">
                             <h4>{{Auth::user()->name}} <span class="date"><?php echo date('Y-m-d') ?></span></h4>
                             {!! Form::textarea('comment', '', ['class' => 'form-control', 'rows' => '3', 'placeholder' => 'Ecrire le commentaire...']) !!}
                             <div class="avis col-sm-6 col-xs-12">
+                              {!! Form::radio('url_emote', "love", 0, ['class' => 'img-responsive avis', 'id'=>'inlineRadio1', 'onclick'=>'displayEmote("love")']) !!}
                                 <img src="{{ URL::asset('images/emotes/love.png') }}" alt="love" class="img-responsive avis" />
+                              {!! Form::radio('url_emote', "happy", 1, ['class' => 'img-responsive avis', 'id'=>'inlineRadio1', 'onclick'=>'displayEmote("happy")']) !!}
                                 <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="happy" class="img-responsive avis" />
+                              {!! Form::radio('url_emote', "smile", 0, ['class' => 'img-responsive avis', 'id'=>'inlineRadio1', 'onclick'=>'displayEmote("smile")']) !!}
                                 <img src="{{ URL::asset('images/emotes/smile.png') }}" alt="smile" class="img-responsive avis" />
+                              {!! Form::radio('url_emote', "sad", 0, ['class' => 'img-responsive avis', 'id'=>'inlineRadio1', 'onclick'=>'displayEmote("sad")']) !!}
                                 <img src="{{ URL::asset('images/emotes/sad.png') }}" alt="sad" class="img-responsive avis" />
+                              {!! Form::radio('url_emote', "cry", 0, ['class' => 'img-responsive avis', 'id'=>'inlineRadio1', 'onclick'=>'displayEmote("cry")']) !!}
                                 <img src="{{ URL::asset('images/emotes/cry.png') }}" alt="cry" class="img-responsive avis" />
+
                             </div>
                             <div class="col-sm-6 col-xs-12">
                                 {!! Form::submit('Envoyer le commentaire', ['class' => 'btn']) !!}
                             </div>
                         </div>
                         {!! Form::hidden('comeback_url', $folder.'/'.$matieres.'/'.strtolower($level).'/'.$game->id_game.'-'.$game->game_name); !!}
-                        {!! Form::hidden('url_emote', 'happy'); !!}
 
                       {!! Form::close() !!}
 
@@ -127,6 +132,13 @@
 @section('script')
   <script src="{{ URL::asset('js/easing.js') }}"></script>
   <script>
+    var emoteRoot = "{{ URL::asset('images/emotes') }}";
+    var $emoteContainer = $("#emoteContainer");
+
+    function displayEmote(value) {
+      $emoteContainer.attr('src', emoteRoot + '/' + value + '.png');
+    }
+
       $(function() {
           $('.nav-pills li a').bind('click', function(event) {
               var $anchor = $(this);

@@ -90,12 +90,6 @@
               <span class="fa fa-facebook"></span> Créer votre compte avec Facebook
             </a>
           </div>
-
-          <div class="form-group col-xs-12">
-            <a class="btn btn-block btn-social btn-google">
-              <span class="fa fa-google-plus"></span> Créer votre compte avec Google
-            </a>
-          </div>
         </div>
       </div>
 

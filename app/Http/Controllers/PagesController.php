@@ -17,16 +17,6 @@ class PagesController extends Controller
       return view('pages/contact');
     }
 
-    public function post_comments(Request $request)
-    {
-        return dd($request);
-    }
-
-    public function post_contact(Request $request)
-    {
-        return var_dump($request);
-    }
-
     public function connexion() {
       return view('auth/login');
     }
@@ -55,7 +45,7 @@ class PagesController extends Controller
         return view('pages/scores', ['games_ranking'=>$games_ranking, 'user_cards'=>$user_cards]);
       }
       else
-        return redirect()->route('accueil');
+        return redirect()->route('error');
     }
 
     public function mentions() {
@@ -68,7 +58,7 @@ class PagesController extends Controller
         return view('pages/settings', ['user_comments'=>$user_comments]);
       }
       else
-        return redirect()->route('accueil');
+        return redirect()->route('error');
     }
 
     public function error() {
@@ -99,17 +89,20 @@ class PagesController extends Controller
     private function jeu($level, $matieres, $id_game, $game_name, $folder) {
       $level_available = array("cp","ce1","ce2","cm1","cm2");
       if(!(in_array(strtolower($level), $level_available)))
-        return redirect()->route('accueil');
+        return redirect()->route('error');
+
+      $game = \App\Games::where('id_game', $id_game)->get();
+      if(!isset($game[0]))
+        return redirect()->route('error');
+      if(!($game[0][strtoupper($level).'_available'] == 1))
+        return redirect()->route('error');
+      if(!($game[0]->theme == strtolower($matieres)))
+        return redirect()->route('error');
 
       $game_rank = \App\Ranking::where('id_game', $id_game)->orderBy('user_score', 'desc')->limit(10)->get();;
 
       $game_comments = \App\Comments::where('id_game', $id_game)->orderBy('date', 'asc')->get();
 
-      $game = \App\Games::where('id_game', $id_game)->get();
-      if(!($game[0][strtoupper($level).'_available'] == 1))
-        return redirect()->route('accueil');
-      if(!($game[0]->theme == strtolower($matieres)))
-        return redirect()->route('accueil');
       return view('pages/jeu', [
         'level'=>strtoupper($level),
         'game'=>$game[0],
@@ -121,13 +114,11 @@ class PagesController extends Controller
     }
 
      public function jeu_matieres($matieres, $level, $id_game, $game_name) {
-      $folder = 'jeux';
-      return $this->jeu($level, $matieres, $id_game, $game_name,$folder);
+      return $this->jeu($level, $matieres, $id_game, $game_name,'jeux');
     }
 
     public function jeu_level($level, $matieres, $id_game, $game_name) {
-      $folder = 'niveaux';
-      return $this->jeu($level, $matieres, $id_game, $game_name, $folder);
+      return $this->jeu($level, $matieres, $id_game, $game_name, 'niveaux');
     }
 
 }

@@ -67,16 +67,6 @@
           </div>
         </div>
 
-        {{-- <div class="form-group">
-          <div class="col-xs-12">
-            <div class="checkbox">
-              <a class="btn btn-link" href="{{ url('/password/reset') }}">
-                Vous avez oublié votre mot de passe ?
-              </a>
-            </div>
-          </div>
-        </div> --}}
-
         <div class="form-group">
           <div class="col-xs-12">
             <div class="form-group col-xs-12">
@@ -84,14 +74,6 @@
                 <span class="fa fa-facebook"></span> Se connecter avec Facebook
               </a>
             </div>
-
-            <div class="form-group col-xs-12">
-              <a class="btn btn-block btn-social btn-google">
-                <span class="fa fa-google-plus"></span> Se connecter avec Google
-              </a>
-            </div>
-          </div>
-        </div>
 
       </form>
     </main>

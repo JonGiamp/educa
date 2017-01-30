@@ -59,6 +59,9 @@ class RequestController extends Controller
       if($request->years != $user->years)
         $user->years = $request->years;
 
+      if($request->avatar != $user->avatar)
+        $user->avatar = $request->avatar;
+
       // We save the change
       $user->save();
 

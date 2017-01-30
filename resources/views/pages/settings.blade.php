@@ -9,7 +9,22 @@
         return 0;
       return 1;
     }
+
+    function checkAvatar($avatar) {
+      if($avatar !== Auth::user()->avatar)
+        return 0;
+      return 1;
+    }
     ?>
+    <style media="screen">
+      .avatar_preview {
+        width: 50px;
+        height: 50px;
+        background-color: #FF9136;
+        display: inline-block;
+        margin-right: 30px;
+      }
+    </style>
     <div class="container">
       <div class="col-lg-5">
         <ol class="breadcrumb">
@@ -72,8 +87,39 @@
                   'id'=>'email'
                   ]) !!}
                 </div>
+
                 <div class="form-group col-lg-12">
-                  {!! Form::label('years', 'En quelle classe êtes-vous ?') !!}
+                  {!! Form::label('avatar', 'Je choisis mon avatar') !!}
+                  <div class="form-group radio">
+                    <label class="radio-inline">
+                      {!! Form::radio('avatar', "bird", checkAvatar("bird"), ['class' => 'field']) !!}
+                    </label>
+                        <img src="{{ URL::asset('images/avatar/avatar_bird.svg') }}" alt="bird" class="img-responsive avatar_preview" />
+                    <label class="radio-inline">
+                      {!! Form::radio('avatar', "cat", checkAvatar("cat"), ['class' => 'field']) !!}
+                    </label>
+                        <img src="{{ URL::asset('images/avatar/avatar_cat.svg') }}" alt="cat" class="img-responsive avatar_preview" />
+                    <label class="radio-inline">
+                      {!! Form::radio('avatar', "dog", checkAvatar("dog"), ['class' => 'field']) !!}
+                    </label>
+                        <img src="{{ URL::asset('images/avatar/avatar_dog.svg') }}" alt="dog" class="img-responsive avatar_preview" />
+                    <label class="radio-inline">
+                      {!! Form::radio('avatar', "lions", checkAvatar("lions"), ['class' => 'field']) !!}
+                    </label>
+                        <img src="{{ URL::asset('images/avatar/avatar_lions.svg') }}" alt="lions" class="img-responsive avatar_preview" />
+                    <label class="radio-inline">
+                      {!! Form::radio('avatar', "monkey", checkAvatar("monkey"), ['class' => 'field']) !!}
+                    </label>
+                        <img src="{{ URL::asset('images/avatar/avatar_monkey.svg') }}" alt="monkey" class="img-responsive avatar_preview" />
+                    <label class="radio-inline">
+                      {!! Form::radio('avatar', "phoque", checkAvatar("phoque"), ['class' => 'field']) !!}
+                    </label>
+                        <img src="{{ URL::asset('images/avatar/avatar_phoque.svg') }}" alt="phoque" class="img-responsive avatar_preview" />
+                  </div>
+                </div>
+
+                <div class="form-group col-lg-12">
+                  {!! Form::label('years', 'Je choisis ma classe ?') !!}
                   <div class="form-group radio">
                     <label class="radio-inline">
                       {!! Form::radio('years', "cp", checkYears("cp"), ['class' => 'field', 'id'=>'inlineRadio1']) !!} CP

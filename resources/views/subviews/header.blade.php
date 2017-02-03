@@ -20,7 +20,6 @@
                 <div class="avatar">
                   <img src="{{ URL::asset('images/avatar/avatar_'.Auth::user()->avatar.'.svg') }}" alt='Mon avatar' class="avatar" />
                 </div>
-                <!-- NEED TO FIX PROGRESS BAR -->
                 <div class="progress-bar">
                     <div style="width: {{ $exp_percent }}%"></div>
                 </div>

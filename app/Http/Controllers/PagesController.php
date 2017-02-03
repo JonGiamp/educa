@@ -102,7 +102,6 @@ class PagesController extends Controller
       $game_rank = \App\Ranking::where('id_game', $id_game)->orderBy('user_score', 'desc')->limit(10)->get();;
 
       $game_comments = \App\Comments::where('id_game', $id_game)->orderBy('date', 'asc')->get();
-
       return view('pages/jeu', [
         'level'=>strtoupper($level),
         'game'=>$game[0],

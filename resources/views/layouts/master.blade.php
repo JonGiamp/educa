@@ -3,7 +3,7 @@
     <head>
         <title>@yield("title")</title>
         @include("subviews.head")
-        @yield("head_games")
+        @yield("headgames")
     </head>
     <body>
         @include("subviews.header")

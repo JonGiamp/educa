@@ -8,7 +8,7 @@ var game = {
     // Run on page load.
     onload : function (width, height, divId) {
         // Initialize the video.
-        if (!me.video.init(width, height, {wrapper : divId, scale : 'auto'})) {
+        if (!me.video.init(width, height, {wrapper : divId/*, scale : 'auto'*/})) {
             alert("Your browser does not support HTML5 canvas.");
             return;
         }
@@ -736,6 +736,8 @@ game.LobbyScreen = me.ScreenObject.extend({
 		me.game.world.addChild(new smallButton(8,me.game.viewport.height-56,me.game.viewport.width/4-16,48,"#CCAAAA","#DDD","Retour au menu",backButtonCallback),1);
 
 		//Server root socket initialisation
+		// root = io.connect('localhost:2479/');
+		// root = io('localhost:2479');
 		root = io('http://localhost:2479');
 
 		//Sending additionnals data to server in order to associate the client id to the connected user

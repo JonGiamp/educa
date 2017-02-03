@@ -2,12 +2,17 @@
 
 @section('title', 'Educa - '.$game->game_name.' - '.$level.'' )
 
-@if($game->game_url !== "undefined")
-  @section('head_games')
-    <link rel="manifest" href="{{ URL::asset('js/games/'.strtolower($game->game_name).'/manifest.json') }}">
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ URL::asset('js/games/'.strtolower($game->game_name).'/index.css') }}">
-  @endsection
-@endif
+@section('headgames')
+  @if($game->game_url !== "undefined")
+      <link rel="manifest" href="{{ URL::asset('js/games/'.strtolower($game->game_name).'/manifest.json') }}">
+      <link rel="stylesheet" type="text/css" media="screen" href="{{ URL::asset('js/games/'.strtolower($game->game_name).'/index.css') }}">
+      <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  @else
+    <script type="text/javascript">
+      console.log("toto");
+    </script>
+  @endif
+@endsection
 
 @section('content')
   <?php
@@ -35,18 +40,18 @@
   <main id="single" class="container">
       <div class="col-xs-12 jeux">
           <h4>{{ $game->game_name }}</h4>
-          <div class="col-sm-8 col-xs-12" id="screen">
-            @if($game->game_url === "undefined")
-              <div class="row">
+          <div class="col-sm-8 col-xs-12">
+              <div class="row" id="screen">
+                @if($game->game_url === "undefined")
                   <img src="{{ URL::asset('images/games/'.$game->picture_url.'.png') }}" alt="image du jeu">
                   <a href="#collapseExample" class="btn btn-action" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">C'est quoi ce jeu ?</a>
-                  <div class="collapse" id="collapseExample">
-                      <div class="well">
-                          <p>{{ $game->game_notice }}</p>
-                      </div>
+                @endif
+              </div>
+              <div class="collapse" id="collapseExample">
+                  <div class="well">
+                      <p>{{ $game->game_notice }}</p>
                   </div>
               </div>
-            @endif
           </div>
           <div class="col-sm-4 col-xs-12">
               <div class="row">
@@ -159,12 +164,13 @@
   </script>
 
   @if($game->game_url !== "undefined")
-    <script>var imgRoot = "{{ URL::asset('images/games/'.strtolower($game->game_name).'/') }}"</script>
+    <script src="{{ URL::asset('js/games/'.strtolower($game->game_url).'/js/socket.io.min.js') }}"></script>
+    <script>var imgRoot = "{{ URL::asset('images/games/'.strtolower($game->game_url).'/') }}"</script>
     <script src="{{ URL::asset('js/melonJS.js') }}"></script>
-    <script src="{{ URL::asset('js/games/'.strtolower($game->game_name).'/js/main.js') }}"></script>
+    <script src="{{ URL::asset('js/games/'.strtolower($game->game_url).'/js/main.js') }}"></script>
     <script type="text/javascript">
   		window.onReady(function onReady() {
-  			game.onload(600,450,"screen");
+  			game.onload(740,450,"screen");
   		});
   	</script>
   @endif

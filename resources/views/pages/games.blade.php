@@ -39,7 +39,14 @@
             @if ($game[strtoupper($level)."_available"])
               <div class="col-sm-6 col-xs-12">
                 <div class="row">
-                  <img src="{{ URL::asset('images/games/'.$game->picture_url.'.png') }}" alt="image de jeu">
+                  <a href="{{ route('jeu_from_matieres', [
+                    'matieres'=>$game->theme,
+                    'level'=>$level,
+                    'id'=>$game->id_game,
+                    'game'=>$game->game_name
+                    ]) }}">
+                    <img src="{{ URL::asset('images/games/'.$game->picture_url.'.png') }}" alt="image de jeu">
+                  </a>
                 </div>
               </div>
               <div class="col-sm-6 col-xs-12">

@@ -39,13 +39,13 @@
       <div class="col-xs-12">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Mes commentaires</a></li>
-          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Mes paramètres</a></li>
+          <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Mes paramètres</a></li>
+          <li role="presentation"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Mes commentaires</a></li>
         </ul>
 
         <!-- Tab panes -->
         <div class="col-xs-12 tab-content settings">
-          <div role="tabpanel" class="tab-pane active row" id="home">
+          <div role="tabpanel" class="tab-pane row" id="home">
             <div class="commentaires col-xs-12">
               <h3>Les commentaires</h3>
               <div class="comments">
@@ -68,7 +68,7 @@
               </div>
             </div>
           </div>
-          <div role="tabpanel" class="tab-pane row" id="profile">
+          <div role="tabpanel" class="tab-pane active row" id="profile">
             {!! Form::open(['url' => route('options'), 'method' => 'PUT' ]) !!}
             <div class="form-group col-lg-12">
               {!! Form::label('pseudo', 'Votre pseudo') !!}
@@ -119,7 +119,7 @@
                 </div>
 
                 <div class="form-group col-lg-12">
-                  {!! Form::label('years', 'Je choisis ma classe ?') !!}
+                  {!! Form::label('years', 'Je choisis ma classe') !!}
                   <div class="form-group radio">
                     <label class="radio-inline">
                       {!! Form::radio('years', "cp", checkYears("cp"), ['class' => 'field', 'id'=>'inlineRadio1']) !!} CP

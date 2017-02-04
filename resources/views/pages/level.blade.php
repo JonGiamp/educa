@@ -28,7 +28,14 @@
         <div class="col-xs-12 jeu-cp">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="row">
-                    <img src="{{ URL::asset('images/games/'.$game->picture_url.'.png') }}" alt="Image du jeu">
+                  <a href="{{ route('jeu_from_level', [
+                  'level'=>$level,
+                  'matieres'=>$game->theme,
+                  'id'=>$game->id_game,
+                  'game'=>$game->game_name
+                  ]) }}">
+                    <img src="{{ URL::asset('images/games/'.$game->picture_url.'.png') }}" alt="Image du jeu" class="game-image">
+                  </a>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -37,7 +44,6 @@
                         <h3>{{$game->game_name}}</h3>
                         <div class="space"></div>
                         <p>{{$game->game_description}}</p>
-                        {{-- <a href="{{ route('jeu', ['level'=>$level, 'game'=>$game->game_name, 'id'=>$game->id_game]) }}" class="btn">Jouer !</a> --}}
                         <a href="{{ route('jeu_from_level', [
                         'level'=>$level,
                         'matieres'=>$game->theme,

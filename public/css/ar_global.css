@@ -970,3 +970,9 @@ footer {
 @media screen and (max-width: 768px) {
   h4 {
     font-size: 12px; } }
+
+.form-group { margin-bottom: 30px; }
+
+.game-image:hover {
+  opacity: 0.7;
+}

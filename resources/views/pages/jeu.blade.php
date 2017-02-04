@@ -58,7 +58,7 @@
               </div>
               @if($game->game_url !== "undefined")
                 <button type="button" name="button" onclick="ouvre_popup('{{ URL::asset('js/games/'.$game->picture_url.'/index.html?idg='.$game->id_game.'&amp;idu='.$user_id.'&amp;gnme='.$game->game_name.'&amp;glvl='.$level.'&amp;uname='.$user_nickname.'&amp;token='.csrf_token()
-                  ) }}')">Open game</button>
+                  ) }}')">LANCER LE JEU</button>
               @endif
           </div>
           <div class="col-sm-4 col-xs-12">
@@ -75,7 +75,7 @@
                             <li class="list-group-item">Le classement est actuellement vide, profite en !</li>
                           @endif
                       </ul>
-                      @if(count($game_rank) != 0)
+                      @if(count($game_rank) != 0 && Auth::check())
                         <a href="{{ route('scores') }}" class="btn">Voir le classement complet</a>
                       @endif
                   </div>

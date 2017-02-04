@@ -27,13 +27,13 @@
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist">
               <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Mes classements</a></li>
-              <li role="presentation"><a href="#cards" aria-controls="cards" role="tab" data-toggle="tab">Mes récompenses</a></li>
+              <li role="presentation"><a href="#rewards" aria-controls="rewards" role="tab" data-toggle="tab">Mes récompenses</a></li>
           </ul>
 
           <!-- Tab panes -->
           <div class="col-xs-12 tab-content">
             <!-- Ranking tab -->
-              <div role="tabpanel" class="tab-pane active row" id="ranking">
+              <div role="tabpanel" class="tab-pane active row" id="home">
                 @foreach ($games_ranking as $rank)
                   <ul class="list-group col-sm-4 col-xs-12">
                       <li class="list-group-item title">{{$rank[0]->game_name}}</li>
@@ -44,9 +44,8 @@
                   </ul>
                   @endforeach
               </div>
-
               <!-- Cards tab -->
-              <div role="tabpanel" class="tab-pane row" id="cards">
+              <div role="tabpanel" class="tab-pane row" id="rewards">
                 @foreach ($user_cards as $user_card)
                   <div class="col-sm-4 col-xs-12">
                       <div class="panel panel-default">

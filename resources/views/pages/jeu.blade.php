@@ -66,10 +66,12 @@
                   <div class="bloc">
                       <ul class="list-group">
                           <li class="list-group-item title">classement</a>
+                            <?php $i = 1; ?>
                           @if(count($game_rank) != 0)
                             @foreach ($game_rank as $player)
-                            <li class="list-group-item <?php checkName($player->user_name,$user_nickname) ?>"><span>{{strtoupper($player->game_level)}}</span>
+                            <li class="list-group-item <?php checkName($player->user_name,$user_nickname) ?>"><span>{{/*strtoupper($player->game_level)*/ $i}}</span>
                               {{$player->user_name}}<span style="left: auto; right: 10px;">{{$player->user_score}}</span></li>
+                              <?php $i++; ?>
                             @endforeach
                           @else
                             <li class="list-group-item">Le classement est actuellement vide, profite en !</li>

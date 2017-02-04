@@ -6,11 +6,15 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ContactRequest;
 use App\Http\Requests\CommentsRequest;
 use App\Http\Requests\SettingsRequest;
+use App\Http\Requests\RankRequest;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\Contact;
 use App\Comments;
+use App\Ranking;
 use App\Users;
+use App\Http\Controllers\Input;
+
 
 class RequestController extends Controller
 {
@@ -27,13 +31,30 @@ class RequestController extends Controller
     $Comments->date = date('Y-m-d');
     $Comments->save();
 
-    return redirect()->route('options');
+    return redirect()->route('jeu_from_matieres', [
+      'matieres'=>$request->matieres,
+      'level'=>$request->level,
+      'id'=>$request->id_game,
+      'game'=>$request->game_name
+    ]);
+
   }
 
   public function post_contact(ContactRequest $request) {
     Mail::to('contacteduca@gmail.com')
             ->send(new Contact($request->except('_token')));
     return view('pages/contact');
+  }
+
+  public function post_rank(RankRequest $request) {
+    $Ranking = new Ranking;
+    $Ranking->id_game = $request->input('id_game');
+    $Ranking->game_name = $request->input('game_name');
+    $Ranking->id_user = $request->input('id_user');
+    $Ranking->game_level = $request->input('game_level');
+    $Ranking->user_name = $request->input('user_name');
+    $Ranking->user_score = $request->input('user_score');
+    $Ranking->save();
   }
 
   public function put_settings(SettingsRequest $request) {

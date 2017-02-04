@@ -1127,6 +1127,7 @@ game.GameoverScreen = me.ScreenObject.extend({
         renderer.fillRect(me.game.viewport.width/8, me.game.viewport.height/8, 3*me.game.viewport.width/4, 3*me.game.viewport.height/4);
 				this.font.draw(renderer, "GAMEOVER", me.game.viewport.width/2, me.game.viewport.height/2-64);
 				this.font.draw(renderer, "Pixie a dormi "+Math.floor(game.data.chrono)+" secondes et\ntu as marqué "+game.data.score+" points", me.game.viewport.width/2, me.game.viewport.height/2-16);
+				// sendScore(game.data.score);
 			},
 
 			onDestroyEvent : function () {

@@ -1,0 +1,61 @@
+[
+	{
+		"correct": [
+			"PYJAMA",
+			"PYJAMAS"
+		],
+		"uncorrect": [
+			"PIJAMA",
+			"PYGEAMA",
+			"PIGEAMA"
+		]
+	},
+	{
+		"correct": [
+			"MANGER"
+		],
+		"uncorrect": [
+			"MANJER",
+			"MENGER",
+			"MENJER"
+		]
+	},
+	{
+		"correct": [
+			"BALLE"
+		],
+		"uncorrect": [
+			"BALE",
+			"BALL"
+		]
+	},
+	{
+		"correct": [
+			"FAIRE"
+		],
+		"uncorrect": [
+			"FAIRRE",
+			"FÈRE",
+			"FÈRRE"
+		]
+	},
+	{
+		"correct": [
+			"BLANC"
+		],
+		"uncorrect": [
+			"BLEN",
+			"BLENC"
+		]
+	},
+	{
+		"correct": [
+			"NOIR",
+			"NOIRE"
+		],
+		"uncorrect": [
+			"BLEN",
+			"BLENC"
+		]
+	}
+]

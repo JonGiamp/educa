@@ -2,7 +2,7 @@
 
 @section('title', 'Educa - '.$game->game_name.' - '.$level.'' )
 
-@section('headgames')
+{{-- @section('headgames')
   @if($game->game_url !== "undefined")
       <link rel="manifest" href="{{ URL::asset('js/games/'.strtolower($game->game_name).'/manifest.json') }}">
       <link rel="stylesheet" type="text/css" media="screen" href="{{ URL::asset('js/games/'.strtolower($game->game_name).'/index.css') }}">
@@ -12,11 +12,12 @@
       console.log("toto");
     </script>
   @endif
-@endsection
+@endsection --}}
 
 @section('content')
   <?php
     $user_nickname = '';
+    $user_id = '';
     function checkName($name, $user_nickname)
     {
       if(strtolower($name) == $user_nickname)
@@ -24,7 +25,10 @@
     }
   ?>
   @if(Auth::check())
-    <?php $user_nickname = strtolower(Auth::user()->name) ?>
+    <?php
+      $user_nickname = strtolower(Auth::user()->name);
+      $user_id = strtolower(Auth::user()->id);
+    ?>
   @endif
   <div class="container">
       <div class="col-lg-5">
@@ -42,16 +46,20 @@
           <h4>{{ $game->game_name }}</h4>
           <div class="col-sm-8 col-xs-12">
               <div class="row" id="screen">
-                @if($game->game_url === "undefined")
+                {{-- @if($game->game_url === "undefined") --}}
                   <img src="{{ URL::asset('images/games/'.$game->picture_url.'.png') }}" alt="image du jeu">
                   <a href="#collapseExample" class="btn btn-action" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">C'est quoi ce jeu ?</a>
-                @endif
+                {{-- @endif --}}
               </div>
               <div class="collapse" id="collapseExample">
                   <div class="well">
                       <p>{{ $game->game_notice }}</p>
                   </div>
               </div>
+              @if($game->game_url !== "undefined")
+                <button type="button" name="button" onclick="ouvre_popup('{{ URL::asset('js/games/'.$game->picture_url.'/index.html?idg='.$game->id_game.'&amp;idu='.$user_id.'&amp;gnme='.$game->game_name.'&amp;glvl='.$level.'&amp;uname='.$user_nickname.'&amp;token='.csrf_token()
+                  ) }}')">Open game</button>
+              @endif
           </div>
           <div class="col-sm-4 col-xs-12">
               <div class="row">
@@ -106,6 +114,10 @@
                         {!! Form::hidden('id_game', $game->id_game); !!}
                         {!! Form::hidden('game_name', $game->game_name); !!}
                         {!! Form::hidden('game_picture', $game->picture_url); !!}
+
+                        {!! Form::hidden('level', $level); !!}
+
+                        {!! Form::hidden('matieres', $game->theme); !!}
 
                         <div class="col-sm-1 col-xs-2 smiley">
                             <img src="{{ URL::asset('images/emotes/happy.png') }}" alt="happy" class="img-responsive" id="emoteContainer"/>
@@ -163,7 +175,7 @@
       });
   </script>
 
-  @if($game->game_url !== "undefined")
+  {{-- @if($game->game_url !== "undefined")
     <script src="{{ URL::asset('js/games/'.strtolower($game->game_url).'/js/socket.io.min.js') }}"></script>
     <script>var imgRoot = "{{ URL::asset('images/games/'.strtolower($game->game_url).'/') }}"</script>
     <script src="{{ URL::asset('js/melonJS.js') }}"></script>
@@ -173,6 +185,12 @@
   			game.onload(740,450,"screen");
   		});
   	</script>
-  @endif
+  @endif --}}
+
+  <script type="text/javascript">
+    function ouvre_popup(page) {
+       window.open(page,"nom_popup","menubar=no, status=no, scrollbars=no, menubar=no, width=740, height=450");
+   }
+  </script>
 
 @endsection

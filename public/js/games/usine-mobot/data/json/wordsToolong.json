@@ -1,0 +1,13 @@
+,
+	{
+		"correct": "TRACTEUR",
+		"uncorrect": [
+			"TRAKTEUR",
+			"TRACTTEUR",
+			"TRAKTTEUR",
+			"TRACTEURRE",
+			"TRAKTEURRE",
+			"TRACTTEURE",
+			"TRAKTEURRE"
+		]
+	}

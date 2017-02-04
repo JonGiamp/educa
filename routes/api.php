@@ -22,3 +22,5 @@ Route::get('/user', function (Request $request) {
 Route::post('/posts-with-controller', 'PostController@addPost');            // post
 Route::put('/posts-with-controller/{id}', 'PostController@editPost');       // put
 Route::delete('/posts-with-controller/{id}', 'PostController@deletePost');  // delete
+
+Route::post('/post_rank', 'RequestController@post_rank')->name('post_rank');

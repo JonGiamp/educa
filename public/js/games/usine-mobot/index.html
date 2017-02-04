@@ -14,8 +14,8 @@
 			<!-- melonJS Library -->
 			<!-- build:js js/app.min.js -->
 			<script type="text/javascript" src="lib/melonJS.js"></script>
-			<script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
-			<script src="node_modules/socket.io-client/dist/socket.io.js"></script>
+			<!-- JQuery Library -->
+			<script type="text/javascript" src="lib/jquery-1.3.2.min.js"></script>
 
 			<!-- Plugin(s) -->
 			<script type="text/javascript" src="lib/plugins/debug/debugPanel.js"></script>
@@ -25,22 +25,18 @@
 			<script type="text/javascript" src="js/entities/HUD.js"></script>
 			<script type="text/javascript" src="js/resources.js"></script>
 
-			<script type="text/javascript" src="js/pixie.js"></script>
-			<script type="text/javascript" src="js/pixieMulti.js"></script>
-			<script type="text/javascript" src="js/cloud.js"></script>
-			<script type="text/javascript" src="js/cloudMulti.js"></script>
+			<script type="text/javascript" src="js/panel.js"></script>
+			<script type="text/javascript" src="js/bot.js"></script>
 
 			<script type="text/javascript" src="js/screens/menu.js"></script>
 			<script type="text/javascript" src="js/screens/play.js"></script>
-			<script type="text/javascript" src="js/screens/lobby.js"></script>
-			<script type="text/javascript" src="js/screens/multi.js"></script>
 			<script type="text/javascript" src="js/screens/gameover.js"></script>
 			<!-- /build -->
 
 			<!-- Bootstrap -->
 			<script type="text/javascript">
 					window.onReady(function onReady() {
-							game.onload(600,450,"screen");
+							game.onload();
 					});
 			</script>
       <script type="text/javascript" src="../connect-games.js"></script>

@@ -12,6 +12,6 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-        //
+        "https://tp.iha.unistra.fr/projets/dweb01/educa/public/js/games/pixie/index.html"
     ];
 }

@@ -4,12 +4,13 @@ game.GameoverScreen = me.ScreenObject.extend({
 	 */
 	onResetEvent: function() {
 		me.game.world.addChild(new me.ColorLayer("background", "#66AACC"), 0);
-		
+		sendScore(game.data.score);
+
 		me.game.world.addChild(new (me.Renderable.extend ({
 			// constructor
 			init : function () {
 				this._super(me.Renderable, 'init', [me.game.viewport.width/4, me.game.viewport.height/4, me.game.viewport.width/2, me.game.viewport.height/2]);
-				
+
 				this.background = new me.ColorLayer("scoreBox", "#444444");
 
 				// font for the text
@@ -31,7 +32,7 @@ game.GameoverScreen = me.ScreenObject.extend({
 
 			}
 		})), 1);
-		
+
 		//back to menu button
 		function backButtonCallback() {
 			me.state.change(me.state.MENU);

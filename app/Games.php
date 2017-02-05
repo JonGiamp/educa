@@ -12,7 +12,7 @@ class Games extends Model
           - Le moteur de base de données attend à trouver deux column : createdAt, deletedAt.
 
       Si on veut annuler tout ça, on définit nous même les paramètres. Si on a pas les deux column, on annule le timestamps    */
-    protected $primaryKey = 'id_game'; // or null
+    protected $primaryKey = 'id_game';
     protected $table = 'educa_games';
     public $timestamps = false;
 

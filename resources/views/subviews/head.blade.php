@@ -28,10 +28,22 @@
 <link rel="stylesheet" href="{{ URL::asset('css/owl.theme.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/flexboxgrid.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap-social.css') }}">
+<script type="text/javascript" src="{{ URL::asset('js/tarteaucitron/tarteaucitron.js') }}"></script>
+<script type="text/javascript">
+  tarteaucitron.init({
+    "hashtag": "#tarteaucitron", /* Ouverture automatique du panel avec le hashtag */
+    "highPrivacy": false, /* désactiver le consentement implicite (en naviguant) ? */
+    "orientation": "bottom", /* le bandeau doit être en haut (top) ou en bas (bottom) ? */
+    "adblocker": false, /* Afficher un message si un adblocker est détecté */
+    "showAlertSmall": true, /* afficher le petit bandeau en bas à droite ? */
+    "cookieslist": true, /* Afficher la liste des cookies installés ? */
+    "removeCredit": false /* supprimer le lien vers la source ? */
+  });
+</script>
 
- <!-- Include JS PLUG IN -->
- <script
-  src="{{ URL::asset('js/jquery-2.2.4.min.js') }}" rel="script"></script>
+<!-- Include JS PLUG IN -->
+<script
+src="{{ URL::asset('js/jquery-2.2.4.min.js') }}" rel="script"></script>
 
 <script src="{{ URL::asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>

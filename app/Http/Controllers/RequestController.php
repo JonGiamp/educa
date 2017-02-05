@@ -13,6 +13,8 @@ use App\Mail\Contact;
 use App\Comments;
 use App\Ranking;
 use App\Users;
+use App\Users_x_cards;
+use App\Cards;
 use App\Http\Controllers\Input;
 
 
@@ -55,6 +57,20 @@ class RequestController extends Controller
     $Ranking->user_name = $request->input('user_name');
     $Ranking->user_score = $request->input('user_score');
     $Ranking->save();
+
+    $user = Users::find($request->input('id_user'));
+    $cards_count = \App\Cards::all()->sortBy("id_card")->count();
+    $user->experience = $user->experience + $request->input('user_score') / 100 ;
+    if($user->experience >= $user->level * 100) {
+      $user->level = $user->level + 1;
+    if($user->level <= $cards_count) {
+        $Cards = new Users_x_cards;
+        $Cards->id_user = $request->input('id_user');
+        $Cards->id_card = $user->level;
+        $Cards->save();
+      }
+    }
+    $user->save();
   }
 
   public function put_settings(SettingsRequest $request) {

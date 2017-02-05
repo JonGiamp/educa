@@ -2,18 +2,6 @@
 
 @section('title', 'Educa - '.$game->game_name.' - '.$level.'' )
 
-{{-- @section('headgames')
-  @if($game->game_url !== "undefined")
-      <link rel="manifest" href="{{ URL::asset('js/games/'.strtolower($game->game_name).'/manifest.json') }}">
-      <link rel="stylesheet" type="text/css" media="screen" href="{{ URL::asset('js/games/'.strtolower($game->game_name).'/index.css') }}">
-      <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  @else
-    <script type="text/javascript">
-      console.log("toto");
-    </script>
-  @endif
-@endsection --}}
-
 @section('content')
   <?php
     $user_nickname = '';
@@ -40,16 +28,13 @@
       </div>
   </div>
 
-
   <main id="single" class="container">
       <div class="col-xs-12 jeux">
           <h4>{{ $game->game_name }}</h4>
           <div class="col-sm-8 col-xs-12">
               <div class="row" id="screen">
-                {{-- @if($game->game_url === "undefined") --}}
                   <img src="{{ URL::asset('images/games/'.$game->picture_url.'.png') }}" alt="image du jeu">
                   <a href="#collapseExample" class="btn btn-action" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">C'est quoi ce jeu ?</a>
-                {{-- @endif --}}
               </div>
               <div class="collapse" id="collapseExample">
                   <div class="well">
@@ -66,12 +51,10 @@
                   <div class="bloc">
                       <ul class="list-group">
                           <li class="list-group-item title">classement</a>
-                            <?php $i = 1; ?>
                           @if(count($game_rank) != 0)
                             @foreach ($game_rank as $player)
-                            <li class="list-group-item <?php checkName($player->user_name,$user_nickname) ?>"><span>{{/*strtoupper($player->game_level)*/ $i}}</span>
+                            <li class="list-group-item <?php checkName($player->user_name,$user_nickname) ?>"><span>{{$loop->iteration}}</span>
                               {{$player->user_name}}<span style="left: auto; right: 10px;">{{$player->user_score}}</span></li>
-                              <?php $i++; ?>
                             @endforeach
                           @else
                             <li class="list-group-item">Le classement est actuellement vide, profite en !</li>

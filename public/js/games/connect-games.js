@@ -57,8 +57,8 @@ function sendScore(score) {
       'user_name': params.user_name,
       'user_score': params.user_score
      },
-    success: function() {
-      console.log("ok");
+    success: function(msg) {
+      console.log(msg);
     },
     error: function() {
       console.log("problem");

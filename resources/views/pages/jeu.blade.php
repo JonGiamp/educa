@@ -33,7 +33,7 @@
           <h4>{{ $game->game_name }}</h4>
           <div class="col-sm-8 col-xs-12">
               <div class="row" id="screen">
-                  <img src="{{ URL::asset('images/games/'.$game->picture_url.'.png') }}" alt="image du jeu">
+                  <img src="{{ URL::asset('images/games/'.$game->picture_url.'_game.png') }}" alt="image du jeu">
                   <a href="#collapseExample" class="btn btn-action" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">C'est quoi ce jeu ?</a>
               </div>
               <div class="collapse" id="collapseExample">
@@ -69,20 +69,24 @@
           <div class="commentaires col-xs-12">
               <h3>Les commentaires</h3>
               <div class="comments">
-                @foreach($game_comments as $comment)
-                  <div class="comments-item row">
-                      <div class="col-sm-3 col-xs-12 image">
-                          <img src="{{ URL::asset('images/games/'.$comment->game_picture.'.png') }}" alt="{{$comment->url_emote}}" class="img-responsive" />
-                      </div>
-                      <div class="col-sm-1 col-xs-2 smiley">
-                          <img src="{{ URL::asset('images/emotes/'.$comment->url_emote.'.png') }}" alt="" class="img-responsive" />
-                      </div>
-                      <div class="col-sm-8 col-xs-10 texte">
-                          <h4>{{$comment->user_name}} <span class="date">{{$comment->date}}</span></h4>
-                          <p>{{$comment->comment}}</p>
-                      </div>
-                  </div>
-                @endforeach
+                @if(count($game_comments))
+                  @foreach($game_comments as $comment)
+                    <div class="comments-item row">
+                        <div class="col-sm-3 col-xs-12 image">
+                            <img src="{{ URL::asset('images/games/'.$comment->game_picture.'.png') }}" alt="{{$comment->url_emote}}" class="img-responsive" />
+                        </div>
+                        <div class="col-sm-1 col-xs-2 smiley">
+                            <img src="{{ URL::asset('images/emotes/'.$comment->url_emote.'.png') }}" alt="" class="img-responsive" />
+                        </div>
+                        <div class="col-sm-8 col-xs-10 texte">
+                            <h4>{{$comment->user_name}} <span class="date">{{$comment->date}}</span></h4>
+                            <p>{{$comment->comment}}</p>
+                        </div>
+                    </div>
+                  @endforeach
+                @else
+                  <p style="color: #FF9136;">Il n'y a aucun commentaire. N'hésite pas à laisser le tiens ! :)</p>
+                @endif
               </div>
           </div>
 
@@ -92,7 +96,7 @@
               <div class="comments">
                   <div class="comments-item row">
                       <div class="col-sm-3 col-xs-12 image">
-                          <img src="{{ URL::asset('images/games/'.$comment->game_picture.'.png') }}" alt="{{$comment->url_emote}}" class="img-responsive" />
+                          <img src="{{ URL::asset('images/games/'.$game->picture_url.'.png') }}" alt="{{$game->picture_url}}" class="img-responsive" />
                       </div>
 
                         {!! Form::open(['url' => route('post_comments') ]) !!}

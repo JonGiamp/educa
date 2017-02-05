@@ -5,12 +5,10 @@
   @section('content')
     <?php
     $userYear = '';
-    // Better wirte this ?
     function checkYears($year, $userYear)
     {
-      if($year == $userYear) {
-        echo 'style="border: 2px solid #FF9136;"';
-      }
+      if($year == $userYear)
+        echo 'style="border: 8px solid #FF9136;"';
     }
     ?>
     @if (Auth::check())
@@ -95,7 +93,6 @@
               $level_available = array("cp","ce1","ce2","cm1","cm2");
               $has_level = false;
               ?>
-              <!-- Personnalize launch game by user->years ? -->
               @foreach ($games_top as $game)
                 <?php $i = -1; ?>
                 <article class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -114,7 +111,6 @@
                         }
                         $has_level = !$has_level;
                         ?>
-                        {{-- <a href="{{ route('jeu', ['level'=>$level_available[$i], 'game'=>$game->game_name]) }}" class="btn">Jouer !</a> --}}
                         <a href="{{ route('jeu_from_matieres', [
                           'matieres'=>$game->theme,
                           'level'=>$level_available[$i],

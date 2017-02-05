@@ -103,7 +103,7 @@ class PagesController extends Controller
       if(!($game[0]->theme == strtolower($matieres)))
         return redirect()->route('error');
 
-      $game_rank = \App\Ranking::where('id_game', $id_game)->orderBy('user_score', 'desc')->limit(10)->get();;
+      $game_rank = \App\Ranking::where('id_game', $id_game)->orderBy('user_score', 'desc')->limit(10)->get();
 
       $game_comments = \App\Comments::where('id_game', $id_game)->orderBy('date', 'asc')->get();
       return view('pages/jeu', [

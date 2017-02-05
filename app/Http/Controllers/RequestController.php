@@ -15,6 +15,7 @@ use App\Ranking;
 use App\Users;
 use App\Users_x_cards;
 use App\Cards;
+use App\Games;
 use App\Http\Controllers\Input;
 
 
@@ -57,6 +58,10 @@ class RequestController extends Controller
     $Ranking->user_name = $request->input('user_name');
     $Ranking->user_score = $request->input('user_score');
     $Ranking->save();
+
+    $game = Games::find($request->input('id_game'));
+    $game->count_play = $game->count_play + 1;
+    $game->save();
 
     $user = Users::find($request->input('id_user'));
     $cards_count = \App\Cards::all()->sortBy("id_card")->count();

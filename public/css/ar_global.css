@@ -393,7 +393,8 @@ main {
       border: 1px solid #FF9136;
       transition: 0.3s ease;
       margin-top: 20px;
-      margin-bottom: 20px; }
+      margin-bottom: 20px;
+      margin-right: 20px; }
       @media screen and (max-width: 1024px) {
         #single .jeux a.btn {
           width: 100%;
@@ -502,6 +503,10 @@ main {
         #single .commentaires .comments .comments-item .texte h4, #single .commentaires .comments .comments-item .texte p {
           width: 100%;
           color: #333; }
+          #single .commentaires .comments .comments-item .texte .btn-action {
+            float: right;
+            margin: 30px 0;
+          }
   #single .write {
     margin-top: 50px; }
     #single .write .avis {
@@ -546,14 +551,16 @@ main {
     #pub_game article .caption h3 {
       font-weight: 700;
       text-transform: uppercase;
-      vertical-align: middle; }
+      vertical-align: middle;
+      color: #FFF;
+      text-shadow: 2px 2px 4px #555; }
       @media screen and (max-width: 1024px) {
         #pub_game article .caption h3 {
           font-size: 14px; } }
     #pub_game article .caption .space {
       height: 3px;
       width: 15%;
-      background-color: #2CA8C2; }
+      background-color: #FFF; }
     #pub_game article .caption p {
       color: #2CA8C2;
       width: 50%;

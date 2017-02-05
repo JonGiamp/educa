@@ -83,7 +83,7 @@
         </div>
       </div>
 
-      <div class="col-xs-12 form-group">
+      {{-- <div class="col-xs-12 form-group">
         <div class="col-xs-12">
           <div class="form-group col-xs-12">
             <a class="btn btn-block btn-social btn-facebook">
@@ -91,7 +91,7 @@
             </a>
           </div>
         </div>
-      </div>
+      </div> --}}
 
     </form>
   </main>

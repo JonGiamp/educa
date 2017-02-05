@@ -34,6 +34,10 @@
           <div class="col-sm-8 col-xs-12">
               <div class="row" id="screen">
                   <img src="{{ URL::asset('images/games/'.$game->picture_url.'_game.png') }}" alt="image du jeu">
+                  @if($game->game_url !== "undefined")
+                    <a class="btn btn-action" type="button" name="button" onclick="ouvre_popup('{{ URL::asset('js/games/'.$game->picture_url.'/index.html?idg='.$game->id_game.'&amp;idu='.$user_id.'&amp;gnme='.$game->game_name.'&amp;glvl='.$level.'&amp;uname='.$user_nickname.'&amp;token='.csrf_token()
+                      ) }}')">LANCER LE JEU</a>
+                  @endif
                   <a href="#collapseExample" class="btn btn-action" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">C'est quoi ce jeu ?</a>
               </div>
               <div class="collapse" id="collapseExample">
@@ -41,10 +45,6 @@
                       <p>{{ $game->game_notice }}</p>
                   </div>
               </div>
-              @if($game->game_url !== "undefined")
-                <button type="button" name="button" onclick="ouvre_popup('{{ URL::asset('js/games/'.$game->picture_url.'/index.html?idg='.$game->id_game.'&amp;idu='.$user_id.'&amp;gnme='.$game->game_name.'&amp;glvl='.$level.'&amp;uname='.$user_nickname.'&amp;token='.csrf_token()
-                  ) }}')">LANCER LE JEU</button>
-              @endif
           </div>
           <div class="col-sm-4 col-xs-12">
               <div class="row">
@@ -114,7 +114,7 @@
                         <div class="col-sm-8 col-xs-10 texte">
                             <h4>{{Auth::user()->name}} <span class="date"><?php echo date('Y-m-d') ?></span></h4>
                             {!! Form::textarea('comment', '', ['class' => 'form-control', 'rows' => '3', 'placeholder' => 'Ecrire le commentaire...']) !!}
-                            <div class="avis col-sm-6 col-xs-12">
+                            <div class="avis col-sm-8 col-xs-12">
                               {!! Form::radio('url_emote', "love", 0, ['class' => 'img-responsive avis', 'id'=>'inlineRadio1', 'onclick'=>'displayEmote("love")']) !!}
                                 <img src="{{ URL::asset('images/emotes/love.png') }}" alt="love" class="img-responsive avis" />
                               {!! Form::radio('url_emote', "happy", 1, ['class' => 'img-responsive avis', 'id'=>'inlineRadio1', 'onclick'=>'displayEmote("happy")']) !!}
@@ -125,10 +125,9 @@
                                 <img src="{{ URL::asset('images/emotes/sad.png') }}" alt="sad" class="img-responsive avis" />
                               {!! Form::radio('url_emote', "cry", 0, ['class' => 'img-responsive avis', 'id'=>'inlineRadio1', 'onclick'=>'displayEmote("cry")']) !!}
                                 <img src="{{ URL::asset('images/emotes/cry.png') }}" alt="cry" class="img-responsive avis" />
-
                             </div>
-                            <div class="col-sm-6 col-xs-12">
-                                {!! Form::submit('Envoyer le commentaire', ['class' => 'btn']) !!}
+                            <div class="col-sm-4 col-xs-12">
+                                {!! Form::submit('Envoyer le commentaire', ['class' => 'btn btn-action']) !!}
                             </div>
                         </div>
                         {!! Form::hidden('comeback_url', $folder.'/'.$matieres.'/'.strtolower($level).'/'.$game->id_game.'-'.$game->game_name); !!}
@@ -163,18 +162,6 @@
           });
       });
   </script>
-
-  {{-- @if($game->game_url !== "undefined")
-    <script src="{{ URL::asset('js/games/'.strtolower($game->game_url).'/js/socket.io.min.js') }}"></script>
-    <script>var imgRoot = "{{ URL::asset('images/games/'.strtolower($game->game_url).'/') }}"</script>
-    <script src="{{ URL::asset('js/melonJS.js') }}"></script>
-    <script src="{{ URL::asset('js/games/'.strtolower($game->game_url).'/js/main.js') }}"></script>
-    <script type="text/javascript">
-  		window.onReady(function onReady() {
-  			game.onload(740,450,"screen");
-  		});
-  	</script>
-  @endif --}}
 
   <script type="text/javascript">
     function ouvre_popup(page) {

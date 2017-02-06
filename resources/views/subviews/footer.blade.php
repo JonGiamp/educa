@@ -22,8 +22,8 @@
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
           <h4>Nous suivre sur :</h4>
           <div class="hi-icon-wrap hi-icon-effect-1 hi-icon-effect-1a">
-              <i class='hi-icon fa fa-twitter'><a href="http://twitter.com"></a></i>
-              <i class='hi-icon fa fa-facebook'><a href="http://facebook.com"></a></i>
+              <i class='hi-icon fa fa-twitter'><a href="https://twitter.com/educa_team"></a></i>
+              <i class='hi-icon fa fa-facebook'><a href="https://www.facebook.com/teameduca"></a></i>
           </div>
           <h4>Rejoindre le projet sur GitHub</h4>
           <div class="hi-icon-wrap hi-icon-effect-1 hi-icon-effect-1a">

@@ -165,7 +165,7 @@
 
   <script type="text/javascript">
     function ouvre_popup(page) {
-       window.open(page,"nom_popup","menubar=no, status=no, scrollbars=no, menubar=no, width=740, height=450");
+       window.open(page,"Educa - Jeu","menubar=no, status=no, scrollbars=no, menubar=no, width=740, height=450");
    }
   </script>
 

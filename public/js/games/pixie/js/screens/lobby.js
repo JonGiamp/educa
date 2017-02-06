@@ -19,6 +19,9 @@ game.LobbyScreen = me.ScreenObject.extend({
 		//Server root socket initialisation
 		root = io('http://tp.iha.unitra.fr:2479');
 
+    //C9 alternative
+    //root = io('https://educa-pixie-server-oddrigue.c9users.io');
+
 		//Sending additionnals data to server in order to associate the client id to the connected user
 		root.on('waitingUsername', function(data){
 			root.emit('connection2',{id: data.id, username: connectedUser});

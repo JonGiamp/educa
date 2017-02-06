@@ -38,7 +38,7 @@
                   <ul class="list-group col-sm-4 col-xs-12">
                       <li class="list-group-item title">{{$rank[0]->game_name}}</li>
                       @foreach ($rank as $player)
-                      <li class="list-group-item <?php checkName($player->user_name) ?>"><span>{{strtoupper($player->game_level)}}</span>
+                      <li class="list-group-item <?php checkName($player->user_name) ?>"><span>{{$loop->iteration}}</span>
                         {{$player->user_name}}<span style="left: auto; right: 10px;">{{$player->user_score}}</span></li>
                       @endforeach
                   </ul>

@@ -78,7 +78,7 @@
 
                       <a href="{{ route('jeu_from_matieres', [
                         'matieres'=>$game_spotlight->theme,
-                        'level'=>'CE1',
+                        'level'=>'CM1',
                         'id'=>$game_spotlight->id_game,
                         'game'=>$game_spotlight->game_name
                         ]) }}" class="btn btn-action">Jouer !</a>

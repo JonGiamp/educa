@@ -37,7 +37,8 @@ body {
 
 .btn-action {
   background: #FF9136;
-  color: #ffffff !important; }
+  color: #ffffff !important;
+  margin-right: 20px; }
 
 .btn-action:hover {
   background: #ff7503 !important; }
@@ -394,7 +395,7 @@ main {
       transition: 0.3s ease;
       margin-top: 20px;
       margin-bottom: 20px;
-      margin-right: 20px; }
+       }
       @media screen and (max-width: 1024px) {
         #single .jeux a.btn {
           width: 100%;

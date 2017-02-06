@@ -1,0 +1,30 @@
+[
+	{
+		"id": "fre",
+		"name": "Frêne"
+	},
+	{
+		"id": "che",
+		"name": "Chêne"
+	},
+	{
+		"id": "era",
+		"name": "Érable"
+	},
+	{
+		"id": "mar",
+		"name": "Marronier"
+	},
+	{
+		"id": "noi",
+		"name": "Noisetier"
+	},
+	{
+		"id": "til",
+		"name": "Tilleul"
+	},
+	{
+		"id": "pla",
+		"name": "Platane"
+	}
+]

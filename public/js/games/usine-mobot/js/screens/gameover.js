@@ -3,7 +3,7 @@ game.GameoverScreen = me.ScreenObject.extend({
 	 *  action to perform on state change
 	 */
 	onResetEvent: function() {
-		me.game.world.addChild(new me.ColorLayer("background", "#66AACC"), 0);
+		me.game.world.addChild(new me.ColorLayer("background", "#66CCAA"), 0);
 		sendScore(game.data.score);
 
 		me.game.world.addChild(new (me.Renderable.extend ({
@@ -35,7 +35,7 @@ game.GameoverScreen = me.ScreenObject.extend({
 		function backButtonCallback() {
 			me.state.change(me.state.MENU);
 		};
-		me.game.world.addChild(new smallButton(8+3*me.game.viewport.width/4,me.game.viewport.height-56,me.game.viewport.width/4-16,48,"#CCAAAA","#DDD","Retour au menu",backButtonCallback),2);
+		me.game.world.addChild(new smallButton(8+3*me.game.viewport.width/4,me.game.viewport.height-56,me.game.viewport.width/4-16,48,"#A63","#DDD","Retour au menu",backButtonCallback),2);
 	},
 
 	/**
